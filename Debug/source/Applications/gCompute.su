@@ -1,0 +1,2 @@
+../source/Applications/gCompute.cpp:46:6:void gCompute_Setup()	4	static
+../source/Applications/gCompute.cpp:53:6:void gCompute_Execute()	4	static

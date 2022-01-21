@@ -1,0 +1,11 @@
+../source/Modules/mAccelMagneto.c:79:6:mAccelMagneto_Setup	8	static
+../source/Modules/mAccelMagneto.c:88:6:mAccelMagneto_Open	8	static
+../source/Modules/mAccelMagneto.c:97:6:mAccelMagneto_Close	4	static
+../source/Modules/mAccelMagneto.c:104:6:mAccelMagneto_Reset	4	static
+../source/Modules/mAccelMagneto.c:111:6:mAccelMagneto_GetData	32	static
+../source/Modules/mAccelMagneto.c:237:6:mAccelMagneto_SetData	24	static
+../source/Modules/mAccelMagneto.c:325:6:mAccelMagneto_Init	32	static
+../source/Modules/mAccelMagneto.c:419:6:mAccelMagneto_Accel_Calibration	16	static
+../source/Modules/mAccelMagneto.c:498:6:mAccelMagneto_Mag_Calibration	40	static
+../source/Modules/mAccelMagneto.c:647:6:mAccelMagneto_ReadData	40	static
+../source/Modules/mAccelMagneto.c:705:6:PORTB_IRQHandler	4	static

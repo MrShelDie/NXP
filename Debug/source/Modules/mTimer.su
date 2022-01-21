@@ -1,0 +1,10 @@
+../source/Modules/mTimer.c:52:6:mTimer_Setup	8	static
+../source/Modules/mTimer.c:68:6:mTimer_Open	8	static
+../source/Modules/mTimer.c:82:6:mTimer_Close	4	static
+../source/Modules/mTimer.c:91:6:mTimer_GetSpeed	16	static
+../source/Modules/mTimer.c:100:6:mTimer_SetServoDuty	16	static
+../source/Modules/mTimer.c:110:6:mTimer_SetMotorDuty	16	static
+../source/Modules/mTimer.c:118:6:mTimer_EnableHBridge	8	static
+../source/Modules/mTimer.c:129:6:mTimer_DisableHBridge	8	static
+../source/Modules/mTimer.c:139:6:mTimer_GetFaultMoteurLeft	8	static
+../source/Modules/mTimer.c:148:6:mTimer_GetFaultMoteurRight	8	static

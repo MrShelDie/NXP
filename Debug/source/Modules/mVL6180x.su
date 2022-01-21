@@ -1,0 +1,7 @@
+../source/Modules/mVL6180x.c:62:6:mVL6180x_Setup	8	static
+../source/Modules/mVL6180x.c:77:6:mVL6180x_Open	8	static
+../source/Modules/mVL6180x.c:92:6:mVL6180x_Close	4	static
+../source/Modules/mVL6180x.c:106:6:mVL6180x_StartRange	8	static
+../source/Modules/mVL6180x.c:168:6:mVL6180x_GetRange	24	static
+../source/Modules/mVL6180x.c:202:13:mI2C_MPL_GetData	16	static
+../source/Modules/mVL6180x.c:283:13:mI2C_QQCH_SetData	16	static

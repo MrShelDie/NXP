@@ -1,0 +1,16 @@
+/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/CMSIS/core_cm4.h:1679:22:__NVIC_EnableIRQ	16	static
+/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/CMSIS/core_cm4.h:1770:22:__NVIC_ClearPendingIRQ	16	static
+/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/CMSIS/core_cm4.h:1809:22:__NVIC_SetPriority	16	static
+../source/Interfaces/iI2C.c:57:6:iI2C_Config	4	static
+../source/Interfaces/iI2C.c:101:6:iI2C_GyroIntEnable	8	static
+../source/Interfaces/iI2C.c:116:6:iI2C_Enable	4	static
+../source/Interfaces/iI2C.c:127:6:iI2C_stop	4	static
+../source/Interfaces/iI2C.c:137:6:iI2C_SetStartState	4	static
+../source/Interfaces/iI2C.c:146:6:iI2C_SetRepeatedStartSate	4	static
+../source/Interfaces/iI2C.c:155:6:iI2C_SetStopState	4	static
+../source/Interfaces/iI2C.c:164:6:iI2C_SetAckMode	16	static
+../source/Interfaces/iI2C.c:182:6:iI2C_TxRxSelect	16	static
+../source/Interfaces/iI2C.c:199:6:iI2C_SendData	16	static
+../source/Interfaces/iI2C.c:208:6:iI2C_WaitEndOfRxOrTx	4	static
+../source/Interfaces/iI2C.c:221:7:iI2C_ReadData	16	static
+../source/Interfaces/iI2C.c:234:6:iI2C_ReadStatus	16	static

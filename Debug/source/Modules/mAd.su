@@ -1,0 +1,5 @@
+../source/Modules/mAd.c:52:6:mAd_Setup	8	static
+../source/Modules/mAd.c:62:6:mAd_Open	4	static
+../source/Modules/mAd.c:69:6:mAd_Close	4	static
+../source/Modules/mAd.c:77:7:mAd_Read	24	static
+../source/Modules/mAd.c:132:7:mAd_ReadCamera	24	static
