@@ -45,13 +45,13 @@ Description dans le fichier gInput.h
 
 #define VECTORS_SIZE 20
 
-// Создать свою структуру Vector, которая будет хранить флаг
-static Vector	vectors[VECTORS_SIZE];
-static int		vectors_remaind = 0;
-static int		chosen_vectors[2];
+static VectorFlagged	vectors[VECTORS_SIZE];
+static int				not_interf_count = 0;
 
-static void CopyVector(Vector *dst, Vector *src)
+
+static void CopyVector(VectorFlagged *dst, Vector *src)
 {
+	dst->is_interf = false;
 	dst->m_index = src->m_index;
 	dst->m_x0 = src->m_x0;
 	dst->m_x1 = src->m_x1;
@@ -59,11 +59,6 @@ static void CopyVector(Vector *dst, Vector *src)
 	dst->m_y1 = src->m_y1;
 }
 
-static void ClearVector(Vector *vector)
-{
-	vector->m_index = 0;
-	vector->
-}
 
 static void ReadVectorsIdx(Vector *vectors_pixy, uint8_t numVectors)
 {
@@ -71,49 +66,66 @@ static void ReadVectorsIdx(Vector *vectors_pixy, uint8_t numVectors)
 		CopyVector(&vectors[i], &vectors_pixy[i]);
 }
 
-
 // Откидывает шумовые векторы
 static void Validation(Vector *vectors_pixy, uint8_t numVectors)
 {
-	vectors_remaind = 0;
+	not_interf_count = 0;
 
-	bool	is_found;
+	bool	is_vector_found;
 	uint8_t i;
 	int		j;
 
 	for (i = 0; i < numVectors; i++)
 	{
-		is_found = false;
+		is_vector_found = false;
 
 		for (j = 0; j < VECTORS_SIZE; j++)
 		{
 			if (vectors_pixy[i].m_index == vectors[j].m_index)
 			{
-				is_found = true;
-				vectors_idx_remaind++;
+				is_vector_found = true;
+				not_interf_count++;
 				break;
 			}
 		}
+		if (!is_vector_found)
+			vectors[j].is_interf = true;
+	}
+}
 
-		if (!is_found)
-			vectors[j] = -1;
+
+// Функция из векторов, прошедших валидацию, находит два вектора,
+// чей конец будет находиться выше концов остальных векторов
+static void ChooseDirectVectors()
+{
+	int	i = -1;
+
+	// Записываем первые два вектора, не являющиеся помехами
+	while (vectors[++i].is_interf);
+	gInput.chosen_vectors[0] = vectors[i];
+	while (vectors[++i].is_interf);
+	gInput.chosen_vectors[1] = vectors[i];
+
+	not_interf_count -= 2;
+
+	// Проверяем остальные векторы
+	while (not_interf_count > 0)
+	{
+		i++;
+		if (!vectors[i].is_interf)
+		{
+			if (vectors[i].m_y1 < gInput.chosen_vectors[0].m_y1)
+				gInput.chosen_vectors[0] = vectors[i];
+			else if (vectors[i].m_y1 < gInput.chosen_vectors[1].m_y1)
+				gInput.chosen_vectors[1] = vectors[i];
+			not_interf_count--;
+		}
 	}
 }
 
 
 void gInput_Setup(void)
 {
-	for (int i = 0; i < VECTORS_SIZE; i++)
-		vectors_idx[i] = -1;
-}
-
-void choosing_vectors()
-{
-	int i = 0;
-	while(vectors_idx_remaind!=2)
-	{
-		if (vectors_idx[i] != -1)chosen_vectors[]=vectors_idx[i];
-	}
 }
 
 
@@ -121,9 +133,11 @@ void gInput_Execute(Pixy2SPI_SS pixy)
 {
 	pixy.line.getAllFeatures(LINE_VECTOR, true);
 
-	while (vectors_idx_remaind < 2)
+	while (not_interf_count < 2)
 	{
 		ReadVectorsIdx(pixy.line.vectors, pixy.line.numVectors);
 		Validation(pixy.line.vectors, pixy.line.numVectors);
 	}
+	if (not_interf_count >= 2)
+		ChooseDirectVectors();
 }

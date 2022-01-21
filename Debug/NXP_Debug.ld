@@ -6,7 +6,7 @@
  * Generated linker script file for MK64FN1M0xxx12
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.5.0 [Build 7232] [2022-01-11] on 21 янв. 2022 г., 16:48:20
+ * MCUXpresso IDE v11.4.1 [Build 6260] [2021-09-15] on Jan 22, 2022, 12:46:25 AM
  */
 
 INCLUDE "NXP_Debug_library.ld"
@@ -57,6 +57,10 @@ SECTIONS
         ASSERT(!(__FLASH_CONFIG_START__ == __FLASH_CONFIG_END__), "Linker Flash Config Support Enabled, but no .FlashConfig section provided within application");
         /* End of Kinetis Flash Configuration data */
         
+    } > PROGRAM_FLASH
+
+    .text : ALIGN(8)
+    {
        *(.text*)
        *(.rodata .rodata.* .constdata .constdata.*)
        . = ALIGN(8);

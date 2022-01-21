@@ -39,6 +39,7 @@
 
 #include "gCompute.h"
 #include "gMBox.h"
+#include <stdio.h>
 
 //-----------------------------------------------------------------------------
 // Configuration du gestionnaire
@@ -52,4 +53,11 @@ void gCompute_Setup(void)
 //-----------------------------------------------------------------------------
 void gCompute_Execute(void)
 {
+	printf("(%d, %d) ", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0);
+	printf("(%d, %d)\n", gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
+
+	printf("(%d, %d) ", gInput.chosen_vectors[1].m_x0, gInput.chosen_vectors[1].m_y0);
+	printf("(%d, %d)\n", gInput.chosen_vectors[1].m_x1, gInput.chosen_vectors[1].m_y1);
+
+	printf("----------------------------\n");
 }

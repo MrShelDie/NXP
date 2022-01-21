@@ -1,14 +1,16 @@
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/Pixy2SPI_SS.h:51:10:int8_t Link2SPI_SS::open(uint32_t)	16	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/Pixy2SPI_SS.h:69:11:int16_t Link2SPI_SS::recv(uint8_t*, uint8_t, uint16_t*)	32	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/Pixy2SPI_SS.h:91:11:int16_t Link2SPI_SS::send(uint8_t*, uint8_t)	32	static
-../source/main.cpp:85:5:int main()	80	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/TPixy2.h:159:1:TPixy2<LinkType>::TPixy2() [with LinkType = Link2SPI_SS]	16	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/TPixy2.h:177:8:int8_t TPixy2<LinkType>::init(uint32_t) [with LinkType = Link2SPI_SS]	24	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/Pixy2CCC.h:109:3:Pixy2CCC<LinkType>::Pixy2CCC(TPixy2<LinkType>*) [with LinkType = Link2SPI_SS]	16	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/Pixy2Line.h:139:3:Pixy2Line<LinkType>::Pixy2Line(TPixy2<LinkType>*) [with LinkType = Link2SPI_SS]	16	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/Pixy2Video.h:53:3:Pixy2Video<LinkType>::Pixy2Video(TPixy2<LinkType>*) [with LinkType = Link2SPI_SS]	16	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/TPixy2.h:340:8:int8_t TPixy2<LinkType>::getVersion() [with LinkType = Link2SPI_SS]	16	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/TPixy2.h:359:8:int8_t TPixy2<LinkType>::getResolution() [with LinkType = Link2SPI_SS]	16	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/TPixy2.h:301:9:int16_t TPixy2<LinkType>::sendPacket() [with LinkType = Link2SPI_SS]	16	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/TPixy2.h:252:9:int16_t TPixy2<LinkType>::recvPacket() [with LinkType = Link2SPI_SS]	24	static
-/home/Nick/Documents/MCUXpresso_11.5.0_7232/workspace/NXP/source/Pixy/TPixy2.h:203:9:int16_t TPixy2<LinkType>::getSync() [with LinkType = Link2SPI_SS]	32	static
+/home/sheldie/Documents/NXP/source/Pixy/Pixy2SPI_SS.h:51:10:int8_t Link2SPI_SS::open(uint32_t)	16	static
+/home/sheldie/Documents/NXP/source/Pixy/Pixy2SPI_SS.h:64:8:void Link2SPI_SS::close()	16	static
+/home/sheldie/Documents/NXP/source/Pixy/Pixy2SPI_SS.h:69:11:int16_t Link2SPI_SS::recv(uint8_t*, uint8_t, uint16_t*)	32	static
+/home/sheldie/Documents/NXP/source/Pixy/Pixy2SPI_SS.h:91:11:int16_t Link2SPI_SS::send(uint8_t*, uint8_t)	32	static
+../source/main.cpp:85:5:int main()	152	static
+/home/sheldie/Documents/NXP/source/Pixy/TPixy2.h:159:1:TPixy2<LinkType>::TPixy2() [with LinkType = Link2SPI_SS]	16	static
+/home/sheldie/Documents/NXP/source/Pixy/TPixy2.h:170:1:TPixy2<LinkType>::~TPixy2() [with LinkType = Link2SPI_SS]	16	static
+/home/sheldie/Documents/NXP/source/Pixy/TPixy2.h:177:8:int8_t TPixy2<LinkType>::init(uint32_t) [with LinkType = Link2SPI_SS]	24	static
+/home/sheldie/Documents/NXP/source/Pixy/Pixy2CCC.h:109:3:Pixy2CCC<LinkType>::Pixy2CCC(TPixy2<LinkType>*) [with LinkType = Link2SPI_SS]	16	static
+/home/sheldie/Documents/NXP/source/Pixy/Pixy2Line.h:139:3:Pixy2Line<LinkType>::Pixy2Line(TPixy2<LinkType>*) [with LinkType = Link2SPI_SS]	16	static
+/home/sheldie/Documents/NXP/source/Pixy/Pixy2Video.h:53:3:Pixy2Video<LinkType>::Pixy2Video(TPixy2<LinkType>*) [with LinkType = Link2SPI_SS]	16	static
+/home/sheldie/Documents/NXP/source/Pixy/TPixy2.h:340:8:int8_t TPixy2<LinkType>::getVersion() [with LinkType = Link2SPI_SS]	16	static
+/home/sheldie/Documents/NXP/source/Pixy/TPixy2.h:359:8:int8_t TPixy2<LinkType>::getResolution() [with LinkType = Link2SPI_SS]	16	static
+/home/sheldie/Documents/NXP/source/Pixy/TPixy2.h:301:9:int16_t TPixy2<LinkType>::sendPacket() [with LinkType = Link2SPI_SS]	16	static
+/home/sheldie/Documents/NXP/source/Pixy/TPixy2.h:252:9:int16_t TPixy2<LinkType>::recvPacket() [with LinkType = Link2SPI_SS]	24	static
+/home/sheldie/Documents/NXP/source/Pixy/TPixy2.h:203:9:int16_t TPixy2<LinkType>::getSync() [with LinkType = Link2SPI_SS]	32	static

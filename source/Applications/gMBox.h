@@ -49,17 +49,26 @@ Date		Faite	Ctrl		Description
 //-----------------------------------------------------------------------------
 
 #define kNbOfSw 8
+#include <stdint.h>
+
+struct VectorFlagged
+{
+	bool	is_interf;		// Помеха ли это
+	uint8_t m_x0;
+	uint8_t m_y0;
+	uint8_t m_x1;
+	uint8_t m_y1;
+	uint8_t m_index;
+	uint8_t m_flags;
+};
+
 
 typedef struct
 {
-  bool Toto;
+	VectorFlagged	chosen_vectors[2];
 } InputStruct;
 
 extern InputStruct gInput;
-
-//-----------------------------------------------------------------------------
-// Structure du gestionnaire Compute
-//-----------------------------------------------------------------------------
 
 #define kNbOfErr 8
 
