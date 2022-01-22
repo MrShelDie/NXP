@@ -62,7 +62,7 @@ static void CopyVector(VectorFlagged *dst, Vector *src)
 
 static void ReadVectorsIdx(Vector *vectors_pixy, uint8_t numVectors)
 {
-	for (uint8_t i; i < numVectors && i < VECTORS_SIZE; i++)
+	for (uint8_t i = 0; i < numVectors && i < VECTORS_SIZE; i++)
 		CopyVector(&vectors[i], &vectors_pixy[i]);
 }
 
@@ -129,14 +129,14 @@ void gInput_Setup(void)
 }
 
 
-void gInput_Execute(Pixy2SPI_SS pixy)
+void gInput_Execute(Pixy2SPI_SS *pixy)
 {
-	pixy.line.getAllFeatures(LINE_VECTOR, true);
+	(*pixy).line.getAllFeatures(LINE_VECTOR, true);
 
 	while (not_interf_count < 2)
 	{
-		ReadVectorsIdx(pixy.line.vectors, pixy.line.numVectors);
-		Validation(pixy.line.vectors, pixy.line.numVectors);
+		ReadVectorsIdx((*pixy).line.vectors, (*pixy).line.numVectors);
+		Validation((*pixy).line.vectors, (*pixy).line.numVectors);
 	}
 	if (not_interf_count >= 2)
 		ChooseDirectVectors();

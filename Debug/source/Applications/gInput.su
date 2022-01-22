@@ -5,7 +5,7 @@
 ../source/Applications/gInput.cpp:70:13:void Validation(Vector*, uint8_t)	24	static
 ../source/Applications/gInput.cpp:99:13:void ChooseDirectVectors()	16	static
 ../source/Applications/gInput.cpp:127:6:void gInput_Setup()	4	static
-../source/Applications/gInput.cpp:132:6:void gInput_Execute(Pixy2SPI_SS)	16	static
+../source/Applications/gInput.cpp:132:6:void gInput_Execute(Pixy2SPI_SS*)	16	static
 /home/sheldie/Documents/NXP/source/Pixy/Pixy2Line.h:149:10:int8_t Pixy2Line<LinkType>::getAllFeatures(uint8_t, bool) [with LinkType = Link2SPI_SS]	16	static
 /home/sheldie/Documents/NXP/source/Pixy/Pixy2Line.h:175:8:int8_t Pixy2Line<LinkType>::getFeatures(uint8_t, uint8_t, bool) [with LinkType = Link2SPI_SS]	24	static
 /home/sheldie/Documents/NXP/source/Pixy/TPixy2.h:301:9:int16_t TPixy2<LinkType>::sendPacket() [with LinkType = Link2SPI_SS]	16	static
