@@ -1,0 +1,112 @@
+!SESSION 2022-01-24 13:18:14.121 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=ru_RU
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2022-01-24 13:18:28.722
+!MESSAGE Recreating part support. No part support available.
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2022-01-24 13:18:30.961
+!MESSAGE The device 'MK64FN1M0xxx12' (version='1.0.0') from SDK 'SDK_2.x_MK64FN1M0xxx12' (version='2.10.0', build='494 2021-07-15') will be installed.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2022-01-24 13:19:15.146
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at https://mcuxpresso.nxp.com/eclipse/sdk/2.2.6/content.xml.xz.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:452)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCacheFromFile(CacheManager.java:137)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.getLocalFile(XZedSimpleMetadataRepositoryFactory.java:60)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.load(XZedSimpleMetadataRepositoryFactory.java:80)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:63)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:779)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:677)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:110)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:105)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.addChild(CompositeMetadataRepository.java:171)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.<init>(CompositeMetadataRepository.java:113)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepositoryFactory.load(CompositeMetadataRepositoryFactory.java:124)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:63)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:779)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:677)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.basicRefreshRepository(AbstractRepositoryManager.java:205)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.refreshRepository(MetadataRepositoryManager.java:115)
+	at com.nxp.mcuxpresso.core.datamodels.ui.jobs.RefreshSDKRepoJob.run(RefreshSDKRepoJob.java:170)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalStateException: Connection pool shut down
+	at org.apache.http.util.Asserts.check(Asserts.java:34)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.requestConnection(PoolingHttpClientConnectionManager.java:269)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:176)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1003)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:995)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:991)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1002 2022-01-24 13:19:15.147
+!MESSAGE Unable to read repository at https://mcuxpresso.nxp.com/eclipse/sdk/2.2.6/content.xml.xz.
+!STACK 0
+java.lang.IllegalStateException: Connection pool shut down
+	at org.apache.http.util.Asserts.check(Asserts.java:34)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.requestConnection(PoolingHttpClientConnectionManager.java:269)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:176)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1003)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:995)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:991)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.crt.log 4 -1 2022-01-24 13:19:15.148
+!MESSAGE Unable to read repository at https://mcuxpresso.nxp.com/eclipse/sdk.
+!STACK 0
+java.lang.Exception: org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at https://mcuxpresso.nxp.com/eclipse/sdk.
+	at com.crt.utils.general.Reporter.log(Reporter.java:591)
+	at com.nxp.mcuxpresso.core.datamodels.ui.jobs.RefreshSDKRepoJob.run(RefreshSDKRepoJob.java:265)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at https://mcuxpresso.nxp.com/eclipse/sdk.
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.addChild(CompositeMetadataRepository.java:190)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.<init>(CompositeMetadataRepository.java:113)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepositoryFactory.load(CompositeMetadataRepositoryFactory.java:124)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:63)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:779)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:677)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.basicRefreshRepository(AbstractRepositoryManager.java:205)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.refreshRepository(MetadataRepositoryManager.java:115)
+	at com.nxp.mcuxpresso.core.datamodels.ui.jobs.RefreshSDKRepoJob.run(RefreshSDKRepoJob.java:170)
+	... 1 more
+Caused by: org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at https://mcuxpresso.nxp.com/eclipse/sdk/2.2.6/content.xml.xz.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:452)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCacheFromFile(CacheManager.java:137)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.getLocalFile(XZedSimpleMetadataRepositoryFactory.java:60)
+	at org.eclipse.equinox.internal.p2.metadata.repository.XZedSimpleMetadataRepositoryFactory.load(XZedSimpleMetadataRepositoryFactory.java:80)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:63)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:779)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:677)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:110)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:105)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.addChild(CompositeMetadataRepository.java:171)
+	... 9 more
+Caused by: java.lang.IllegalStateException: Connection pool shut down
+	at org.apache.http.util.Asserts.check(Asserts.java:34)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.requestConnection(PoolingHttpClientConnectionManager.java:269)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:176)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1003)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:995)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:991)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	... 1 more

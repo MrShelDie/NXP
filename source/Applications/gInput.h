@@ -46,6 +46,8 @@ Date		Faite	Ctrl		Description
 #ifndef __GINPUT__
 #define __GINPUT__
 
+#define INPUT_DURATION 20
+
 extern "C"
 {
 #include <stdlib.h>
@@ -57,6 +59,6 @@ extern "C"
 
 void gInput_Setup(void);
 
-void gInput_Execute(Pixy2SPI_SS *pixy);
+bool gInput_Execute(Pixy2SPI_SS *pixy);
 
 #endif /*  __GINPUT__ */

@@ -1,10 +1,9 @@
 source/Modules/mTimer.o source/Modules/mTimer.d: \
- ../source/Modules/mTimer.c \
- /home/sheldie/Documents/NXP/source/Modules/mTimer.h \
- /home/sheldie/Documents/NXP/source/Utils/def.h \
- /home/sheldie/Documents/NXP/source/Interfaces/iFlextimer.h \
- /home/sheldie/Documents/NXP/source/Interfaces/iDio.h
-/home/sheldie/Documents/NXP/source/Modules/mTimer.h:
-/home/sheldie/Documents/NXP/source/Utils/def.h:
-/home/sheldie/Documents/NXP/source/Interfaces/iFlextimer.h:
-/home/sheldie/Documents/NXP/source/Interfaces/iDio.h:
+ ../source/Modules/mTimer.c /home/Nick/NXP/NXP/source/Modules/mTimer.h \
+ /home/Nick/NXP/NXP/source/Utils/def.h \
+ /home/Nick/NXP/NXP/source/Interfaces/iFlextimer.h \
+ /home/Nick/NXP/NXP/source/Interfaces/iDio.h
+/home/Nick/NXP/NXP/source/Modules/mTimer.h:
+/home/Nick/NXP/NXP/source/Utils/def.h:
+/home/Nick/NXP/NXP/source/Interfaces/iFlextimer.h:
+/home/Nick/NXP/NXP/source/Interfaces/iDio.h:

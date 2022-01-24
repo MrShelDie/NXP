@@ -155,16 +155,17 @@ int main(void)
 	Pixy2SPI_SS	pixy;
 	pixy.init();
 
-	Int16 main_delay_nb = mDelay_GetDelay(kPit1, 100);
+	Int16 main_delay_nb = mDelay_GetDelay(kPit1, INPUT_DURATION);
 
 	while (true)
 	{
-		gInput_Execute(&pixy);
+		if (!gInput_Execute(&pixy))
+			mDelay_ReStart(kPit1, main_delay_nb, INPUT_DURATION);
 		if (mDelay_IsDelayDone(kPit1, main_delay_nb))
 		{
 			gCompute_Execute();
 			gOutput_Execute();
-			mDelay_ReStart(kPit1, main_delay_nb, 100);
+			mDelay_ReStart(kPit1, main_delay_nb, INPUT_DURATION);
 		}
 	}
 

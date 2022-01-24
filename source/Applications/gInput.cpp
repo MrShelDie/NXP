@@ -43,10 +43,11 @@ Description dans le fichier gInput.h
 #include "gInput.h"
 #include "gMBox.h"
 
+#include <stdio.h>
+
 #define VECTORS_SIZE 20
 
 static VectorFlagged	vectors[VECTORS_SIZE];
-static int				not_interf_count = 0;
 
 
 static void CopyVector(VectorFlagged *dst, Vector *src)
@@ -60,16 +61,16 @@ static void CopyVector(VectorFlagged *dst, Vector *src)
 }
 
 
-static void ReadVectorsIdx(Vector *vectors_pixy, uint8_t numVectors)
+static int ReadVectors(Vector *vectors_pixy, uint8_t numVectors)
 {
 	for (uint8_t i = 0; i < numVectors && i < VECTORS_SIZE; i++)
 		CopyVector(&vectors[i], &vectors_pixy[i]);
 }
 
 // Откидывает шумовые векторы
-static void Validation(Vector *vectors_pixy, uint8_t numVectors)
+static int Validation(Vector *vectors_pixy, uint8_t numVectors)
 {
-	not_interf_count = 0;
+	int not_interf_count = 0;
 
 	bool	is_vector_found;
 	uint8_t i;
@@ -90,13 +91,16 @@ static void Validation(Vector *vectors_pixy, uint8_t numVectors)
 		}
 		if (!is_vector_found)
 			vectors[j].is_interf = true;
+		else
+			vectors[j].is_interf = false;
 	}
+	return (not_interf_count);
 }
 
 
 // Функция из векторов, прошедших валидацию, находит два вектора,
 // чей конец будет находиться выше концов остальных векторов
-static void ChooseDirectVectors()
+static void ChooseDirectVectors(int not_interf_count)
 {
 	int	i = -1;
 
@@ -123,21 +127,46 @@ static void ChooseDirectVectors()
 	}
 }
 
+static void SortChosenVectors()
+{
+	VectorFlagged temp;
+
+	if (gInput.chosen_vectors[0].m_x1 > gInput.chosen_vectors[1].m_x1)
+	{
+		temp = gInput.chosen_vectors[0];
+		gInput.chosen_vectors[0] = gInput.chosen_vectors[1];
+		gInput.chosen_vectors[1] = temp;
+	}
+}
 
 void gInput_Setup(void)
 {
 }
 
 
-void gInput_Execute(Pixy2SPI_SS *pixy)
+bool gInput_Execute(Pixy2SPI_SS *pixy)
 {
+	static int	not_interf_count = 0;
+
 	(*pixy).line.getAllFeatures(LINE_VECTOR, true);
 
-	while (not_interf_count < 2)
+	if (not_interf_count < 2)
 	{
-		ReadVectorsIdx((*pixy).line.vectors, (*pixy).line.numVectors);
-		Validation((*pixy).line.vectors, (*pixy).line.numVectors);
+		not_interf_count = ReadVectors((*pixy).line.vectors, (*pixy).line.numVectors);
+		return (false);
 	}
-	if (not_interf_count >= 2)
-		ChooseDirectVectors();
+
+	not_interf_count = Validation((*pixy).line.vectors, (*pixy).line.numVectors);
+
+	if (not_interf_count < 2)
+	{
+		not_interf_count = ReadVectors((*pixy).line.vectors, (*pixy).line.numVectors);
+		return (false);
+	}
+	else
+		ChooseDirectVectors(not_interf_count);
+
+	SortChosenVectors();
+
+	return (true);
 }
