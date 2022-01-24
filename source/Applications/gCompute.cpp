@@ -40,6 +40,11 @@
 #include "gCompute.h"
 #include "gMBox.h"
 #include <stdio.h>
+#include <cmath>
+
+#define pi 3.1415926535
+#define PIXY_MID_X 39
+#define PIXY_MAX_Y 51
 
 //-----------------------------------------------------------------------------
 // Configuration du gestionnaire
@@ -51,13 +56,40 @@ void gCompute_Setup(void)
 //-----------------------------------------------------------------------------
 // Ex�cution du gestionnaire
 //-----------------------------------------------------------------------------
+//void gCompute_Execute(void)
+//{
+//	printf("(%d, %d) ", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0);
+//	printf("(%d, %d)\n", gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
+//
+//	printf("(%d, %d) ", gInput.chosen_vectors[1].m_x0, gInput.chosen_vectors[1].m_y0);
+//	printf("(%d, %d)\n", gInput.chosen_vectors[1].m_x1, gInput.chosen_vectors[1].m_y1);
+//
+//	printf("----------------------------\n");
+//}
+
+static int dx,dy;
+
+static void compute_main_vector()
+{
+	dx = gInput.chosen_vectors[0].m_x1 - PIXY_MID_X;
+	dy = (gInput.chosen_vectors[0].m_y1 - PIXY_MAX_Y)*(-1);
+}
+
+static int left_or_right()
+{
+	if (dx<0) return -1;
+	else return 1;
+}
+
+static int counting_angle()
+{
+	return acos(dy/(sqrt(dx*dx + dy*dy)))/pi * 180 * left_or_right();
+}
+
 void gCompute_Execute(void)
 {
-	printf("(%d, %d) ", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0);
-	printf("(%d, %d)\n", gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
-
-	printf("(%d, %d) ", gInput.chosen_vectors[1].m_x0, gInput.chosen_vectors[1].m_y0);
-	printf("(%d, %d)\n", gInput.chosen_vectors[1].m_x1, gInput.chosen_vectors[1].m_y1);
-
-	printf("----------------------------\n");
+	compute_main_vector();
+	printf("dx = %d,\tdy = %d\n", dx, dy);
+	gCompute.turn_angle = counting_angle();
 }
+

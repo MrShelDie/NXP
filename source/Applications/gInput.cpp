@@ -43,8 +43,6 @@ Description dans le fichier gInput.h
 #include "gInput.h"
 #include "gMBox.h"
 
-#include <stdio.h>
-
 #define VECTORS_SIZE 20
 
 static VectorFlagged	vectors[VECTORS_SIZE];
@@ -84,6 +82,7 @@ static int Validation(Vector *vectors_pixy, uint8_t numVectors)
 		{
 			if (vectors_pixy[i].m_index == vectors[j].m_index)
 			{
+				CopyVector(&vectors[j], &vectors_pixy[i]);
 				is_vector_found = true;
 				not_interf_count++;
 				break;

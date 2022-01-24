@@ -42,6 +42,13 @@ Date		Faite	Ctrl		Description
 #ifndef __GOUTPUT__
 #define __GOUTPUT__
 
+extern "C"
+{
+#include <stdlib.h>
+#include <stdio.h>
+#include "Modules/mTimer.h"
+}
+
 //-----------------------------------------------------------------------------
 // Configuration du gestionnaire
 //-----------------------------------------------------------------------------

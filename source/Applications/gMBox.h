@@ -74,7 +74,7 @@ extern InputStruct gInput;
 
 typedef struct
 {
-  bool Titi;
+  int turn_angle;
 } ComputeStruct;
 
 extern ComputeStruct gCompute;
