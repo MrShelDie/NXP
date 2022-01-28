@@ -42,31 +42,9 @@
 #include <stdio.h>
 #include <cmath>
 
-#define pi 			3.1415926535
-#define PIXY_MID_X 	39
-#define PIXY_MAX_Y 	51
-#define DROP_MAX	50
-
-//-----------------------------------------------------------------------------
-// Configuration du gestionnaire
-//-----------------------------------------------------------------------------
 void gCompute_Setup(void)
 {
 }
-
-//-----------------------------------------------------------------------------
-// Ex�cution du gestionnaire
-//-----------------------------------------------------------------------------
-//void gCompute_Execute(void)
-//{
-//	printf("(%d, %d) ", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0);
-//	printf("(%d, %d)\n", gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
-//
-//	printf("(%d, %d) ", gInput.chosen_vectors[1].m_x0, gInput.chosen_vectors[1].m_y0);
-//	printf("(%d, %d)\n", gInput.chosen_vectors[1].m_x1, gInput.chosen_vectors[1].m_y1);
-//
-//	printf("----------------------------\n");
-//}
 
 static void compute_main_vector(int x, int y, int *dx, int *dy)
 {
@@ -80,7 +58,7 @@ static int left_or_right(int dx)
 	else return -1;
 }
 
-static int compute_angle(int dx, int dy)
+static int compute_angle_by_point(int dx, int dy)
 {
 	return acos(dy/(sqrt(dx*dx + dy*dy)))/pi * 180 * left_or_right(dx);
 }
@@ -91,19 +69,34 @@ static void get_main_point(int *x, int *y)
 	*y = (gInput.chosen_vectors[1].m_y1 + gInput.chosen_vectors[0].m_y1) / 2;
 }
 
+static int	compute_angle_by_1_vect()
+{
+	if (gInput.chosen_vectors[0].m_index != -1)
+		return (RESTORE_ANGLE * (-1));
+	else if (gInput.chosen_vectors[1].m_index != -1)
+		return (RESTORE_ANGLE);
+	else
+	{
+		if (gInput.chosen_vectors[2].m_x0 >= PIXY_MID_X)
+			return (RESTORE_ANGLE);
+		else
+			return (RESTORE_ANGLE * (-1));
+	}
+}
+
 void gCompute_Execute(void)
 {
 	int	x, y;
 	int dx, dy;
 
-	get_main_point(&x, &y);
-	compute_main_vector(x, y, &dx, &dy);
-
-#ifdef _DEBUG_
-	printf("x = %d\ty = %d\ndx = %d,\tdy = %d\n", x, y, dx, dy);
-#endif
-
-	gCompute.turn_angle = compute_angle(dx, dy);
+	if (gInput.chosen_count == 2)
+	{
+		get_main_point(&x, &y);
+		compute_main_vector(x, y, &dx, &dy);
+		gCompute.turn_angle = compute_angle_by_point(dx, dy);
+	}
+	else if (gInput.chosen_count == 1)
+		gCompute.turn_angle = compute_angle_by_1_vect();
 }
 
 bool CheckStopLine()

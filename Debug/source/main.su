@@ -1,7 +1,7 @@
 /home/Nick/NXP/NXP/source/Pixy/Pixy2SPI_SS.h:51:10:int8_t Link2SPI_SS::open(uint32_t)	16	static
 /home/Nick/NXP/NXP/source/Pixy/Pixy2SPI_SS.h:69:11:int16_t Link2SPI_SS::recv(uint8_t*, uint8_t, uint16_t*)	32	static
 /home/Nick/NXP/NXP/source/Pixy/Pixy2SPI_SS.h:91:11:int16_t Link2SPI_SS::send(uint8_t*, uint8_t)	32	static
-../source/main.cpp:86:5:int main()	80	static
+../source/main.cpp:88:5:int main()	88	static
 /home/Nick/NXP/NXP/source/Pixy/TPixy2.h:159:1:TPixy2<LinkType>::TPixy2() [with LinkType = Link2SPI_SS]	16	static
 /home/Nick/NXP/NXP/source/Pixy/TPixy2.h:177:8:int8_t TPixy2<LinkType>::init(uint32_t) [with LinkType = Link2SPI_SS]	24	static
 /home/Nick/NXP/NXP/source/Pixy/TPixy2.h:438:8:int8_t TPixy2<LinkType>::setLamp(uint8_t, uint8_t) [with LinkType = Link2SPI_SS]	24	static

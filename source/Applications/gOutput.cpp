@@ -73,8 +73,9 @@ void gOutput_Execute(void)
 	mTimer_SetServoDuty(0, servo_duty);
 
 #ifdef _DEBUG_
+
 	printf("Angle = %d\n", gCompute.turn_angle);
-	printf("Duty = %d\n", (int)(servo_duty * 100));
-	printf("---------------------------------------\n");
+	//printf("Duty = %d\n", (int)(servo_duty * 100));
+	//printf("---------------------------------------\n");
 #endif
 }

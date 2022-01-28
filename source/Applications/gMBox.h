@@ -60,14 +60,15 @@ struct VectorFlagged
 	uint8_t m_y0;
 	uint8_t m_x1;
 	uint8_t m_y1;
-	uint8_t m_index;
+	int		m_index;
 	uint8_t m_flags;
 };
 
 
 typedef struct
 {
-	struct VectorFlagged	chosen_vectors[2];
+	struct VectorFlagged	chosen_vectors[3];
+	int						chosen_count;
 	int						pixel_line[PIXEL_LINE_SIZE];
 } InputStruct;
 

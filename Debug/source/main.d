@@ -39,7 +39,7 @@ source/main.o source/main.d: ../source/main.cpp \
  /home/Nick/NXP/NXP/source/Modules/mSpi.h \
  ../source/Applications/gCompute.h ../source/Applications/gOutput.h \
  /home/Nick/NXP/NXP/source/Modules/mTimer.h ../source/Utils/def.h \
- ../source/Pixy/Pixy2SPI_SS.h
+ ../source/Pixy/Pixy2SPI_SS.h ../source/Applications/gMBox.h
 /home/Nick/NXP/NXP/board/board.h:
 /home/Nick/NXP/NXP/board/clock_config.h:
 /home/Nick/NXP/NXP/drivers/fsl_common.h:
@@ -92,3 +92,4 @@ source/main.o source/main.d: ../source/main.cpp \
 /home/Nick/NXP/NXP/source/Modules/mTimer.h:
 ../source/Utils/def.h:
 ../source/Pixy/Pixy2SPI_SS.h:
+../source/Applications/gMBox.h:

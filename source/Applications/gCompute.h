@@ -39,6 +39,12 @@
 #ifndef __GCOMPUTE__
 #define __GCOMPUTE__
 
+#define pi 				3.1415926535
+#define PIXY_MID_X 		39
+#define PIXY_MAX_Y 		51
+#define DROP_MAX		50
+#define RESTORE_ANGLE	45
+
 bool CheckStopLine();
 
 //-----------------------------------------------------------------------------

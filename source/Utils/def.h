@@ -58,7 +58,7 @@ $History: $
 //------------------------------------------------------------
 // Constants
 //------------------------------------------------------------
-// Core clock
+//// Core clock
 #define kClockCpu 100.0			// 100MHz
 #define kClockCpukHz 100000.0   // 100MHz
 #define kClockPeriphkHz 50000.0 // 50MHz

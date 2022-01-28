@@ -68,6 +68,8 @@ extern "C"
 #include "Utils/def.h"
 #include "Pixy/Pixy2SPI_SS.h"
 
+#include "Applications/gMBox.h"
+
 #define K_MAIN_INTERVAL (100 / kPit1Period)
 
 
@@ -155,16 +157,16 @@ int main(void)
 
 	Pixy2SPI_SS	pixy;
 	pixy.init();
-	pixy.setLamp(1, 1);
+	pixy.setLamp(0, 0);
 
 	while (true)
 	{
-		mTimer_SetServoDuty(0, 0);
+		//mTimer_SetServoDuty(0, 0);
 		// Ждем, поднятия переключателя, чтоб машина поехала
 		while (!mSwitch_ReadSwitch(kSw1));
 
 		Int16 main_delay_nb = mDelay_GetDelay(kPit1, INPUT_DURATION);
-		mTimer_SetMotorDuty(-0.8, 0.8);
+		mTimer_SetMotorDuty(-0.5, 0.5);
 
 		// Цикл работает, пока поднят переключатель
 		while (mSwitch_ReadSwitch(kSw1))
@@ -173,8 +175,10 @@ int main(void)
 				mDelay_ReStart(kPit1, main_delay_nb, INPUT_DURATION);
 			if (mDelay_IsDelayDone(kPit1, main_delay_nb))
 			{
-				gCompute_Execute();
-				gOutput_Execute();
+				printf("(%d, %d), (%d, %d)\n", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
+						gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
+				//gCompute_Execute();
+				//gOutput_Execute();
 				mDelay_ReStart(kPit1, main_delay_nb, INPUT_DURATION);
 			}
 		}
