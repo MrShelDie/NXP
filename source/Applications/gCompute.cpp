@@ -42,9 +42,10 @@
 #include <stdio.h>
 #include <cmath>
 
-#define pi 3.1415926535
-#define PIXY_MID_X 39
-#define PIXY_MAX_Y 51
+#define pi 			3.1415926535
+#define PIXY_MID_X 	39
+#define PIXY_MAX_Y 	51
+#define DROP_MAX	50
 
 //-----------------------------------------------------------------------------
 // Configuration du gestionnaire
@@ -67,29 +68,52 @@ void gCompute_Setup(void)
 //	printf("----------------------------\n");
 //}
 
-static int dx,dy;
-
-static void compute_main_vector()
+static void compute_main_vector(int x, int y, int *dx, int *dy)
 {
-	dx = gInput.chosen_vectors[0].m_x1 - PIXY_MID_X;
-	dy = (gInput.chosen_vectors[0].m_y1 - PIXY_MAX_Y)*(-1);
+	*dx = x - PIXY_MID_X;
+	*dy = (y - PIXY_MAX_Y) * (-1);
 }
 
-static int left_or_right()
+static int left_or_right(int dx)
 {
-	if (dx<0) return -1;
-	else return 1;
+	if (dx<0) return 1;
+	else return -1;
 }
 
-static int counting_angle()
+static int compute_angle(int dx, int dy)
 {
-	return acos(dy/(sqrt(dx*dx + dy*dy)))/pi * 180 * left_or_right();
+	return acos(dy/(sqrt(dx*dx + dy*dy)))/pi * 180 * left_or_right(dx);
+}
+
+static void get_main_point(int *x, int *y)
+{
+	*x = (gInput.chosen_vectors[1].m_x1 + gInput.chosen_vectors[0].m_x1) / 2;
+	*y = (gInput.chosen_vectors[1].m_y1 + gInput.chosen_vectors[0].m_y1) / 2;
 }
 
 void gCompute_Execute(void)
 {
-	compute_main_vector();
-	printf("dx = %d,\tdy = %d\n", dx, dy);
-	gCompute.turn_angle = counting_angle();
+	int	x, y;
+	int dx, dy;
+
+	get_main_point(&x, &y);
+	compute_main_vector(x, y, &dx, &dy);
+
+#ifdef _DEBUG_
+	printf("x = %d\ty = %d\ndx = %d,\tdy = %d\n", x, y, dx, dy);
+#endif
+
+	gCompute.turn_angle = compute_angle(dx, dy);
 }
 
+bool CheckStopLine()
+{
+	for (int i = 0; i < PIXEL_LINE_SIZE - 1; i++)
+	{
+		if ((gInput.pixel_line[i] != -1 && gInput.pixel_line[i + 1] != -1)
+			&& (abs(gInput.pixel_line[i] - gInput.pixel_line[i + 1]) > DROP_MAX)
+		)
+			return (true);
+	}
+	return (false);
+}

@@ -42,14 +42,16 @@ Date		Faite	Ctrl		Description
 #ifndef __GMBOX__
 #define __GMBOX__
 
-#include "Utils/def.h" //KMs
+#include "Utils/def.h"
 
 //-----------------------------------------------------------------------------
 // Structure du gestionnaire Input
 //-----------------------------------------------------------------------------
 
 #define kNbOfSw 8
+#define PIXEL_LINE_SIZE 40
 #include <stdint.h>
+
 
 struct VectorFlagged
 {
@@ -65,7 +67,8 @@ struct VectorFlagged
 
 typedef struct
 {
-	VectorFlagged	chosen_vectors[2];
+	struct VectorFlagged	chosen_vectors[2];
+	int						pixel_line[PIXEL_LINE_SIZE];
 } InputStruct;
 
 extern InputStruct gInput;
@@ -78,5 +81,7 @@ typedef struct
 } ComputeStruct;
 
 extern ComputeStruct gCompute;
+
+void ResetPixelLine();
 
 #endif /* __GMBOX__ */

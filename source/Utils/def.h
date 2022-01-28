@@ -48,6 +48,13 @@ $History: $
 
 #include <stdbool.h>
 
+// Раскомментируй строку ниже, чтобы включить вывод информации в консоль
+#define _DEBUG_
+// Время фильтрации входных векторов
+#define INPUT_DURATION 100
+
+#define PIXY_VIDEO_Y_MAX 207
+
 //------------------------------------------------------------
 // Constants
 //------------------------------------------------------------
@@ -57,6 +64,13 @@ $History: $
 #define kClockPeriphkHz 50000.0 // 50MHz
 #define CORE_CLOCK (100000000)
 #define PERIPHERAL_BUS_CLOCK (CORE_CLOCK / 2)
+
+//#define kClockCpu 50.0			// 100MHz
+//#define kClockCpukHz 50000.0   // 100MHz
+//#define kClockPeriphkHz 25000.0 // 50MHz
+//#define CORE_CLOCK (50000000)
+//#define PERIPHERAL_BUS_CLOCK (CORE_CLOCK / 2)
+
 
 // Cam�ra digitale ou analogique
 #define kDigCamera 1
