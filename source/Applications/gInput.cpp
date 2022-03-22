@@ -107,22 +107,23 @@ static void	Choose1DirectVector(VectorFlagged *vectors)
 	int	i = -1;
 
 	while (vectors[++i].is_interf);
-	if (vectors[i].m_index == gInput.chosen_vectors[0].m_index)
-	{
-		gInput.chosen_vectors[1].m_index = -1;
-		gInput.chosen_vectors[2].m_index = -1;
-	}
-	else if (vectors[i].m_index == gInput.chosen_vectors[1].m_index)
-	{
-		gInput.chosen_vectors[0].m_index = -1;
-		gInput.chosen_vectors[2].m_index = -1;
-	}
-	else
-	{
-		gInput.chosen_vectors[2] = vectors[i];
-		gInput.chosen_vectors[0].m_index = -1;
-		gInput.chosen_vectors[1].m_index = -1;
-	}
+//	if (vectors[i].m_index == gInput.chosen_vectors[0].m_index)
+//	{
+//		gInput.chosen_vectors[1].m_index = -1;
+//		gInput.chosen_vectors[2].m_index = -1;
+//	}
+//	else if (vectors[i].m_index == gInput.chosen_vectors[1].m_index)
+//	{
+//		gInput.chosen_vectors[0].m_index = -1;
+//		gInput.chosen_vectors[2].m_index = -1;
+//	}
+//	else
+//	{
+//		gInput.chosen_vectors[2] = vectors[i];
+//		gInput.chosen_vectors[0].m_index = -1;
+//		gInput.chosen_vectors[1].m_index = -1;
+//	}
+	gInput.chosen_vectors[0] = vectors[i];
 	gInput.chosen_count = 1;
 }
 
@@ -243,10 +244,11 @@ void gInput_Execute(Pixy2SPI_SS &pixy)
 
 	while (!mDelay_IsDelayDone(kPit1, input_delay_nb))
 	{
+		// Получает векторы с камеры в pixy.line.vectors
+		pixy.line.getAllFeatures(LINE_VECTOR, true);
+
 		if (not_interf_vector_count == 0)
 		{
-			// Получает векторы с камеры в pixy.line.vectors
-			pixy.line.getAllFeatures(LINE_VECTOR, true);
 			not_interf_vector_count = CopyPixyVectorsToVectorFlagged(pixy.line.vectors, vectors, pixy.line.numVectors);
 			mDelay_ReStart(kPit1, input_delay_nb, INPUT_DURATION);
 		}

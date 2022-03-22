@@ -67,7 +67,7 @@ struct VectorFlagged
 
 typedef struct
 {
-	struct VectorFlagged	chosen_vectors[3];
+	struct VectorFlagged	chosen_vectors[2];
 	int						chosen_count;
 	int						pixel_line[PIXEL_LINE_SIZE];
 } InputStruct;
