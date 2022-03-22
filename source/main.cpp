@@ -117,13 +117,13 @@ int main(void)
 	mTimer_Setup();
 	mTimer_Open();
 
-	// Setup FXOS8700CQ
-	mAccelMagneto_Setup();
-	mAccelMagneto_Open();
+//	// Setup FXOS8700CQ
+//	mAccelMagneto_Setup();
+//	mAccelMagneto_Open();
 
-	// Setup FXAS21002C
-	mGyro_Setup();
-	mGyro_Open();
+//	// Setup FXAS21002C
+//	mGyro_Setup();
+//	mGyro_Open();
 
 	// Config and start of the DAC0 used to drive the driver LED lighting
 	mDac_Setup();
@@ -173,13 +173,17 @@ int main(void)
 		// Цикл работает, пока поднят переключатель
 		while (mSwitch_ReadSwitch(kSw1))
 		{
-			gInput_Execute(&pixy);
+			gInput_Execute(pixy);
 			if (gInput.chosen_count == 1)
-				printf("(%d, %d)\n", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
+				printf("{(x0 = %d, y0 = %d), (x1 = %d, y1 = %d)}\n", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
 						gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
 			else
-				printf("(%d, %d), (%d, %d)\n", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
-					gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
+			{
+				printf("{(x0 = %d, y0 = %d), (x1 = %d, y1 = %d)}, ", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
+						gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
+				printf("{(x0 = %d, y0 = %d), (x1 = %d, y1 = %d)}\n", gInput.chosen_vectors[1].m_x0, gInput.chosen_vectors[1].m_y0,
+						gInput.chosen_vectors[1].m_x1, gInput.chosen_vectors[1].m_y1);
+			}
 			//gCompute_Execute();
 			//gOutput_Execute();
 		}

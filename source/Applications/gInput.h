@@ -1,7 +1,7 @@
 /*
 ------------------------------------------------------------
 Copyright 2003-20xx Haute �cole ARC Ing�ni�rie, Switzerland. 
-All rights reserved./*
+ * All rights reserved./
  * Copyright 2003-20xx Haute �cole ARC Ing�ni�rie, Switzerland. 
  * All rights reserved.
 
@@ -56,6 +56,6 @@ extern "C"
 
 void gInput_Setup(void);
 
-void gInput_Execute(Pixy2SPI_SS *pixy);
+void gInput_Execute(Pixy2SPI_SS &pixy);
 
 #endif /*  __GINPUT__ */

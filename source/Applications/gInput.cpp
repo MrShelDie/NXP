@@ -61,18 +61,18 @@ static void CopyVector(VectorFlagged *dst, Vector *src)
 	dst->m_y1 = src->m_y1;
 }
 
-
-static int ReadVectors(Vector *vectors_pixy, VectorFlagged *vectors, uint8_t numVectors)
+// Копирует pixy векторы в массив помеченных векторов, возвращает их скопированное кол-во
+static int CopyPixyVectorsToVectorFlagged(Vector *vectors_pixy, VectorFlagged *vectors, uint8_t numVectors)
 {
-	uint8_t	i = 0;
+	uint8_t i;
 
-	for (; i < numVectors && i < VECTORS_SIZE; i++)
+	for (i = 0; i < numVectors && i < VECTORS_SIZE; i++)
 		CopyVector(&vectors[i], &vectors_pixy[i]);
 	return ((int)i);
 }
 
 // Откидывает шумовые векторы
-static int Validation(Vector *vectors_pixy, VectorFlagged *vectors, uint8_t numVectors)
+static int FiltreVectors(Vector *vectors_pixy, VectorFlagged *vectors, uint8_t numVectors)
 {
 	int not_interf_count = 0;
 
@@ -208,38 +208,59 @@ static void GetPixelLine(Pixy2SPI_SS *pixy)
 // Функция записывает в буфер те векторы, которые были в камере на протяжении
 // нескольких кадров
 // Возвращает false, когда количество оставшихся векторов равно нулю.
-bool GetFilteredVectors(Pixy2SPI_SS *pixy)
-{
-	static int				not_interf_count = 0;
-	static VectorFlagged	vectors[VECTORS_SIZE];
+//bool GetFilteredVectors(Pixy2SPI_SS *pixy)
+//{
+//	(*pixy).line.getAllFeatures(LINE_VECTOR, true);
+//	//GetPixelLine(pixy);
+//	if (not_interf_count < 1)
+//	{
+//		not_interf_count = CopyPixyVectorsToVectorFlagged((*pixy).line.vectors, vectors, (*pixy).line.numVectors);
+//		return (false);
+//	}
+//	not_interf_count = FiltreVectors((*pixy).line.vectors, vectors, (*pixy).line.numVectors);
+//	if (not_interf_count < 1)
+//	{
+//		not_interf_count = CopyPixyVectorsToVectorFlagged((*pixy).line.vectors, vectors, (*pixy).line.numVectors);
+//		return (false);
+//	}
+//	else if (not_interf_count > 1)
+//	{
+//		Choose2DirectVectors(not_interf_count, vectors);
+//		SortChosenVectors();
+//	}
+//	else
+//		Choose1DirectVector(vectors);
+//	return (true);
+//}
 
-	(*pixy).line.getAllFeatures(LINE_VECTOR, true);
-	//GetPixelLine(pixy);
-	if (not_interf_count < 1)
+void gInput_Execute(Pixy2SPI_SS &pixy)
+{
+	Int16 			input_delay_nb;
+	int				not_interf_vector_count = 0;
+	VectorFlagged	vectors[VECTORS_SIZE];
+
+	input_delay_nb = mDelay_GetDelay(kPit1, INPUT_DURATION);
+
+	while (!mDelay_IsDelayDone(kPit1, input_delay_nb))
 	{
-		not_interf_count = ReadVectors((*pixy).line.vectors, vectors, (*pixy).line.numVectors);
-		return (false);
+		if (not_interf_vector_count == 0)
+		{
+			// Получает векторы с камеры в pixy.line.vectors
+			pixy.line.getAllFeatures(LINE_VECTOR, true);
+			not_interf_vector_count = CopyPixyVectorsToVectorFlagged(pixy.line.vectors, vectors, pixy.line.numVectors);
+			mDelay_ReStart(kPit1, input_delay_nb, INPUT_DURATION);
+		}
+		else
+			not_interf_vector_count = FiltreVectors(pixy.line.vectors, vectors, pixy.line.numVectors);
 	}
-	not_interf_count = Validation((*pixy).line.vectors, vectors, (*pixy).line.numVectors);
-	if (not_interf_count < 1)
+
+	if (not_interf_vector_count > 1)
 	{
-		not_interf_count = ReadVectors((*pixy).line.vectors, vectors, (*pixy).line.numVectors);
-		return (false);
-	}
-	else if (not_interf_count > 1)
-	{
-		Choose2DirectVectors(not_interf_count, vectors);
+		Choose2DirectVectors(not_interf_vector_count, vectors);
 		SortChosenVectors();
 	}
 	else
 		Choose1DirectVector(vectors);
-	return (true);
-}
 
-void gInput_Execute(Pixy2SPI_SS *pixy)
-{
-	Int16 main_delay_nb = mDelay_GetDelay(kPit1, INPUT_DURATION);
-
-	while (!GetFilteredVectors(pixy))
-		mDelay_ReStart(kPit1, main_delay_nb, INPUT_DURATION);
+	mDelay_DelayRelease(kPit1, input_delay_nb);
 }
