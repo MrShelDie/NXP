@@ -161,28 +161,28 @@ int main(void)
 
 	while (true)
 	{
-		//mTimer_SetServoDuty(0, 0);
+		mTimer_SetMotorDuty(0, 0);
+		mTimer_SetServoDuty(0, 0);
+
 		// Ждем, поднятия переключателя, чтоб машина поехала
 		while (!mSwitch_ReadSwitch(kSw1));
 
-		Int16 main_delay_nb = mDelay_GetDelay(kPit1, INPUT_DURATION);
+		// Запускает двигатель
 		mTimer_SetMotorDuty(-0.5, 0.5);
 
 		// Цикл работает, пока поднят переключатель
 		while (mSwitch_ReadSwitch(kSw1))
 		{
-			if (!gInput_Execute(&pixy))
-				mDelay_ReStart(kPit1, main_delay_nb, INPUT_DURATION);
-			if (mDelay_IsDelayDone(kPit1, main_delay_nb))
-			{
-				printf("(%d, %d), (%d, %d)\n", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
+			gInput_Execute(&pixy);
+			if (gInput.chosen_count == 1)
+				printf("(%d, %d)\n", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
 						gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
-				//gCompute_Execute();
-				//gOutput_Execute();
-				mDelay_ReStart(kPit1, main_delay_nb, INPUT_DURATION);
-			}
+			else
+				printf("(%d, %d), (%d, %d)\n", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
+					gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
+			//gCompute_Execute();
+			//gOutput_Execute();
 		}
-		mTimer_SetMotorDuty(0, 0);
 	}
 
 

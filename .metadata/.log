@@ -110,3 +110,41 @@ Caused by: java.lang.IllegalStateException: Connection pool shut down
 	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:991)
 	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
 	... 1 more
+!SESSION 2022-03-09 10:51:42.746 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=ru_RU
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.crt.log 4 -1 2022-03-09 10:52:04.547
+!MESSAGE Server returned HTTP response code: 403 for URL: https://mcuxpresso.nxp.com/staticdata/mcuxide/software_packages_index.xml
+!STACK 0
+java.lang.Exception: java.io.IOException: Server returned HTTP response code: 403 for URL: https://mcuxpresso.nxp.com/staticdata/mcuxide/software_packages_index.xml
+	at com.crt.utils.general.Reporter.log(Reporter.java:591)
+	at com.crt.utils.general.SoftwarePackageUtils$1.run(SoftwarePackageUtils.java:145)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.IOException: Server returned HTTP response code: 403 for URL: https://mcuxpresso.nxp.com/staticdata/mcuxide/software_packages_index.xml
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at com.crt.utils.general.SoftwarePackageUtils$1.run(SoftwarePackageUtils.java:118)
+	... 1 more
+
+!ENTRY com.crt.log 4 -1 2022-03-09 10:52:10.883
+!MESSAGE No repository found at https://mcuxpresso.nxp.com/eclipse/sdk.
+!STACK 0
+java.lang.Exception: org.eclipse.equinox.p2.core.ProvisionException: No repository found at https://mcuxpresso.nxp.com/eclipse/sdk.
+	at com.crt.utils.general.Reporter.log(Reporter.java:591)
+	at com.nxp.mcuxpresso.core.datamodels.ui.jobs.RefreshSDKRepoJob.run(RefreshSDKRepoJob.java:265)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.equinox.p2.core.ProvisionException: No repository found at https://mcuxpresso.nxp.com/eclipse/sdk.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:397)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:701)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.basicRefreshRepository(AbstractRepositoryManager.java:205)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.refreshRepository(ArtifactRepositoryManager.java:136)
+	at com.nxp.mcuxpresso.core.datamodels.ui.jobs.RefreshSDKRepoJob.run(RefreshSDKRepoJob.java:168)
+	... 1 more
+
+!ENTRY com.nxp.swtools.kex.api.internal.HttpHelper 4 0 2022-03-09 10:53:43.614
+!MESSAGE Error connecting to {0} with error code {1}

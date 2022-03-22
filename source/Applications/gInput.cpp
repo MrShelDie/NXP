@@ -40,6 +40,11 @@ Description dans le fichier gInput.h
 ------------------------------------------------------------
 */
 
+extern "C"
+{
+#include "Modules/mDelay.h"
+}
+
 #include "gInput.h"
 #include "gMBox.h"
 
@@ -200,7 +205,10 @@ static void GetPixelLine(Pixy2SPI_SS *pixy)
 	}
 }
 
-bool gInput_Execute(Pixy2SPI_SS *pixy)
+// Функция записывает в буфер те векторы, которые были в камере на протяжении
+// нескольких кадров
+// Возвращает false, когда количество оставшихся векторов равно нулю.
+bool GetFilteredVectors(Pixy2SPI_SS *pixy)
 {
 	static int				not_interf_count = 0;
 	static VectorFlagged	vectors[VECTORS_SIZE];
@@ -226,4 +234,12 @@ bool gInput_Execute(Pixy2SPI_SS *pixy)
 	else
 		Choose1DirectVector(vectors);
 	return (true);
+}
+
+void gInput_Execute(Pixy2SPI_SS *pixy)
+{
+	Int16 main_delay_nb = mDelay_GetDelay(kPit1, INPUT_DURATION);
+
+	while (!GetFilteredVectors(pixy))
+		mDelay_ReStart(kPit1, main_delay_nb, INPUT_DURATION);
 }

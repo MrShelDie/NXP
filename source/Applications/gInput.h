@@ -56,6 +56,6 @@ extern "C"
 
 void gInput_Setup(void);
 
-bool gInput_Execute(Pixy2SPI_SS *pixy);
+void gInput_Execute(Pixy2SPI_SS *pixy);
 
 #endif /*  __GINPUT__ */

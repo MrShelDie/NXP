@@ -1,15 +1,16 @@
 /home/Nick/NXP/NXP/source/Pixy/Pixy2SPI_SS.h:69:11:int16_t Link2SPI_SS::recv(uint8_t*, uint8_t, uint16_t*)	32	static
 /home/Nick/NXP/NXP/source/Pixy/Pixy2SPI_SS.h:91:11:int16_t Link2SPI_SS::send(uint8_t*, uint8_t)	32	static
-../source/Applications/gInput.cpp:49:13:void CopyVector(VectorFlagged*, Vector*)	16	static
-../source/Applications/gInput.cpp:60:12:int ReadVectors(Vector*, VectorFlagged*, uint8_t)	32	static
-../source/Applications/gInput.cpp:70:12:int Validation(Vector*, VectorFlagged*, uint8_t)	40	static
-../source/Applications/gInput.cpp:100:13:void Choose1DirectVector(VectorFlagged*)	24	static
-../source/Applications/gInput.cpp:126:13:void Choose2DirectVectors(int, VectorFlagged*)	24	static
-../source/Applications/gInput.cpp:155:13:void SortChosenVectors()	24	static
-../source/Applications/gInput.cpp:167:6:void gInput_Setup()	4	static
-../source/Applications/gInput.cpp:171:13:void GetPixelLineCenter(int*, int*)	16	static
-../source/Applications/gInput.cpp:179:13:void GetPixelLine(Pixy2SPI_SS*)	64	static
-../source/Applications/gInput.cpp:203:6:bool gInput_Execute(Pixy2SPI_SS*)	16	static
+../source/Applications/gInput.cpp:54:13:void CopyVector(VectorFlagged*, Vector*)	16	static
+../source/Applications/gInput.cpp:65:12:int ReadVectors(Vector*, VectorFlagged*, uint8_t)	32	static
+../source/Applications/gInput.cpp:75:12:int Validation(Vector*, VectorFlagged*, uint8_t)	40	static
+../source/Applications/gInput.cpp:105:13:void Choose1DirectVector(VectorFlagged*)	24	static
+../source/Applications/gInput.cpp:131:13:void Choose2DirectVectors(int, VectorFlagged*)	24	static
+../source/Applications/gInput.cpp:160:13:void SortChosenVectors()	24	static
+../source/Applications/gInput.cpp:172:6:void gInput_Setup()	4	static
+../source/Applications/gInput.cpp:176:13:void GetPixelLineCenter(int*, int*)	16	static
+../source/Applications/gInput.cpp:184:13:void GetPixelLine(Pixy2SPI_SS*)	64	static
+../source/Applications/gInput.cpp:211:6:bool GetFilteredVectors(Pixy2SPI_SS*)	16	static
+../source/Applications/gInput.cpp:239:6:void gInput_Execute(Pixy2SPI_SS*)	24	static
 /home/Nick/NXP/NXP/source/Pixy/Pixy2Video.h:65:8:int8_t Pixy2Video<LinkType>::getRGB(uint16_t, uint16_t, uint8_t*, uint8_t*, uint8_t*, bool) [with LinkType = Link2SPI_SS]	24	static
 /home/Nick/NXP/NXP/source/Pixy/Pixy2Line.h:149:10:int8_t Pixy2Line<LinkType>::getAllFeatures(uint8_t, bool) [with LinkType = Link2SPI_SS]	16	static
 /home/Nick/NXP/NXP/source/Pixy/TPixy2.h:301:9:int16_t TPixy2<LinkType>::sendPacket() [with LinkType = Link2SPI_SS]	16	static
