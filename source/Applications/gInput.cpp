@@ -71,6 +71,19 @@ static int CopyPixyVectorsToVectorFlagged(Vector vectors_pixy[], VectorFlagged v
 	return ((int)i);
 }
 
+void ifStopLine(Vector new_vector)
+{
+	if (((new_vector.m_x0 == gInput.chosen_vectors[0].m_x1 && new_vector.m_y0 == gInput.chosen_vectors[0].m_y1) ||
+		(new_vector.m_x1 == gInput.chosen_vectors[0].m_x1 && new_vector.m_y0 == gInput.chosen_vectors[0].m_y1)) &&
+		((new_vector.m_x0 == gInput.chosen_vectors[1].m_x1 && new_vector.m_y0 == gInput.chosen_vectors[1].m_y1) ||
+		(new_vector.m_x1 == gInput.chosen_vectors[1].m_x1 && new_vector.m_y0 == gInput.chosen_vectors[1].m_y1)))
+	{
+		gCompute.StopKey1 = true;
+	}
+	gCompute.StopKey1 = false;
+}
+
+
 // Откидывает шумовые векторы
 static int FiltreVectors(Vector vectors_pixy[], VectorFlagged vectors[], uint8_t numVectors)
 {
@@ -93,6 +106,9 @@ static int FiltreVectors(Vector vectors_pixy[], VectorFlagged vectors[], uint8_t
 				not_interf_count++;
 				break;
 			}
+
+			ifStopLine(vectors_pixy[i]); // !!!Проверка стоп линии!!!
+
 		}
 		if (!is_vector_found)
 			vectors[j].is_interf = true;
@@ -174,6 +190,7 @@ void gInput_Setup(void)
 {
 
 }
+
 
 //static void GetPixelLineCenter(int *x, int *y)
 //{
@@ -261,6 +278,7 @@ void gInput_Execute(Pixy2SPI_SS &pixy)
 	{
 		Choose2DirectVectors(not_interf_vector_count, vectors);
 		SortChosenVectors();
+
 	}
 	else
 		Choose1DirectVector(vectors);

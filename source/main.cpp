@@ -184,8 +184,8 @@ int main(void)
 				printf("{(x0 = %d, y0 = %d), (x1 = %d, y1 = %d)}\n", gInput.chosen_vectors[1].m_x0, gInput.chosen_vectors[1].m_y0,
 						gInput.chosen_vectors[1].m_x1, gInput.chosen_vectors[1].m_y1);
 			}
-			//gCompute_Execute();
-			//gOutput_Execute();
+			gCompute_Execute();
+			gOutput_Execute();
 		}
 	}
 
