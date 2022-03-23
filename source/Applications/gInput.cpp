@@ -71,6 +71,19 @@ static int CopyPixyVectorsToVectorFlagged(Vector vectors_pixy[], VectorFlagged v
 	return ((int)i);
 }
 
+void ifStopLine(Vector new_vector)
+{
+	if (((new_vector.m_x0 == gInput.chosen_vectors[0].m_x1 && new_vector.m_y0 == gInput.chosen_vectors[0].m_y1) ||
+		(new_vector.m_x1 == gInput.chosen_vectors[0].m_x1 && new_vector.m_y0 == gInput.chosen_vectors[0].m_y1)) &&
+		((new_vector.m_x0 == gInput.chosen_vectors[1].m_x1 && new_vector.m_y0 == gInput.chosen_vectors[1].m_y1) ||
+		(new_vector.m_x1 == gInput.chosen_vectors[1].m_x1 && new_vector.m_y0 == gInput.chosen_vectors[1].m_y1)))
+	{
+		gCompute.StopKey1 = true;
+	}
+	gCompute.StopKey1 = false;
+}
+
+
 // Откидывает шумовые векторы
 static int FiltreVectors(Vector vectors_pixy[], VectorFlagged vectors[], uint8_t numVectors)
 {
@@ -93,6 +106,9 @@ static int FiltreVectors(Vector vectors_pixy[], VectorFlagged vectors[], uint8_t
 				not_interf_count++;
 				break;
 			}
+
+			ifStopLine(vectors_pixy[i]); // !!!Проверка стоп линии!!!
+
 		}
 		if (!is_vector_found)
 			vectors[j].is_interf = true;
@@ -159,6 +175,70 @@ void gInput_Setup(void)
 
 }
 
+<<<<<<< HEAD
+=======
+
+//static void GetPixelLineCenter(int *x, int *y)
+//{
+//	*x = ((int)gInput.chosen_vectors[0].m_x0 + (int)gInput.chosen_vectors[0].m_x1
+//			+ (int)gInput.chosen_vectors[1].m_x0 + (int)gInput.chosen_vectors[1].m_x1) / 4;
+//	*y = ((int)gInput.chosen_vectors[0].m_y0 + (int)gInput.chosen_vectors[0].m_y1
+//			+ (int)gInput.chosen_vectors[1].m_y0 + (int)gInput.chosen_vectors[1].m_y1) / 4;
+//}
+//
+//static void GetPixelLine(Pixy2SPI_SS *pixy)
+//{
+//	int 	x, y;
+//	int 	y_upper, y_down;
+//	uint8_t	r, g, b;
+//
+//	GetPixelLineCenter(&x, &y);
+//	y_upper = y - (PIXEL_LINE_SIZE / 2);
+//	y_down = y + (PIXEL_LINE_SIZE / 2);
+//
+//	if (y_upper < 0)
+//		y_upper = 0;
+//	if (y_down > PIXY_VIDEO_Y_MAX)
+//		y_down = PIXY_VIDEO_Y_MAX;
+//
+//	ResetPixelLine();
+//
+//	for (int y = y_upper; y <= y_down; y++)
+//	{
+//		(*pixy).video.getRGB(x, y, &r, &g, &b, false);
+//		gInput.pixel_line[y - y_upper] = (int)r + (int)g + (int)b;
+//	}
+//}
+
+// Функция записывает в буфер те векторы, которые были в камере на протяжении
+// нескольких кадров
+// Возвращает false, когда количество оставшихся векторов равно нулю.
+//bool GetFilteredVectors(Pixy2SPI_SS *pixy)
+//{
+//	(*pixy).line.getAllFeatures(LINE_VECTOR, true);
+//	//GetPixelLine(pixy);
+//	if (not_interf_count < 1)
+//	{
+//		not_interf_count = CopyPixyVectorsToVectorFlagged((*pixy).line.vectors, vectors, (*pixy).line.numVectors);
+//		return (false);
+//	}
+//	not_interf_count = FiltreVectors((*pixy).line.vectors, vectors, (*pixy).line.numVectors);
+//	if (not_interf_count < 1)
+//	{
+//		not_interf_count = CopyPixyVectorsToVectorFlagged((*pixy).line.vectors, vectors, (*pixy).line.numVectors);
+//		return (false);
+//	}
+//	else if (not_interf_count > 1)
+//	{
+//		Choose2DirectVectors(not_interf_count, vectors);
+//		SortChosenVectors();
+//	}
+//	else
+//		Choose1DirectVector(vectors);
+//	return (true);
+//}
+
+>>>>>>> Dan
 void gInput_Execute(Pixy2SPI_SS &pixy)
 {
 	Int16 			input_delay_nb;
@@ -185,6 +265,7 @@ void gInput_Execute(Pixy2SPI_SS &pixy)
 	{
 		Choose2DirectVectors(not_interf_vector_count, vectors);
 		SortChosenVectors();
+
 	}
 	else
 		Choose1DirectVector(vectors);
