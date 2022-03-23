@@ -51,28 +51,28 @@ extern "C"
 #define VECTORS_SIZE 20
 
 
-static void CopyVector(VectorFlagged *dst, Vector *src)
+static void CopyVector(VectorFlagged &dst, Vector &src)
 {
-	dst->is_interf = false;
-	dst->m_index = (int)src->m_index;
-	dst->m_x0 = src->m_x0;
-	dst->m_x1 = src->m_x1;
-	dst->m_y0 = src->m_y0;
-	dst->m_y1 = src->m_y1;
+	dst.is_interf = false;
+	dst.m_index = (int)src.m_index;
+	dst.m_x0 = src.m_x0;
+	dst.m_x1 = src.m_x1;
+	dst.m_y0 = src.m_y0;
+	dst.m_y1 = src.m_y1;
 }
 
 // Копирует pixy векторы в массив помеченных векторов, возвращает их скопированное кол-во
-static int CopyPixyVectorsToVectorFlagged(Vector *vectors_pixy, VectorFlagged *vectors, uint8_t numVectors)
+static int CopyPixyVectorsToVectorFlagged(Vector vectors_pixy[], VectorFlagged vectors[], uint8_t numVectors)
 {
 	uint8_t i;
 
 	for (i = 0; i < numVectors && i < VECTORS_SIZE; i++)
-		CopyVector(&vectors[i], &vectors_pixy[i]);
+		CopyVector(vectors[i], vectors_pixy[i]);
 	return ((int)i);
 }
 
 // Откидывает шумовые векторы
-static int FiltreVectors(Vector *vectors_pixy, VectorFlagged *vectors, uint8_t numVectors)
+static int FiltreVectors(Vector vectors_pixy[], VectorFlagged vectors[], uint8_t numVectors)
 {
 	int not_interf_count = 0;
 
@@ -88,7 +88,7 @@ static int FiltreVectors(Vector *vectors_pixy, VectorFlagged *vectors, uint8_t n
 		{
 			if (vectors_pixy[i].m_index == vectors[j].m_index)
 			{
-				CopyVector(&vectors[j], &vectors_pixy[i]);
+				CopyVector(vectors[j], vectors_pixy[i]);
 				is_vector_found = true;
 				not_interf_count++;
 				break;
@@ -102,7 +102,7 @@ static int FiltreVectors(Vector *vectors_pixy, VectorFlagged *vectors, uint8_t n
 	return (not_interf_count);
 }
 
-static void	Choose1DirectVector(VectorFlagged *vectors)
+static void	Choose1DirectVector(const VectorFlagged vectors[])
 {
 	int	i = -1;
 
@@ -129,7 +129,7 @@ static void	Choose1DirectVector(VectorFlagged *vectors)
 
 // Функция из векторов, прошедших валидацию, находит два вектора,
 // чей конец будет находиться выше концов остальных векторов
-static void Choose2DirectVectors(int not_interf_count, VectorFlagged *vectors)
+static void Choose2DirectVectors(int not_interf_count, const VectorFlagged vectors[])
 {
 	int	i = -1;
 
@@ -172,39 +172,40 @@ static void SortChosenVectors()
 
 void gInput_Setup(void)
 {
+
 }
 
-static void GetPixelLineCenter(int *x, int *y)
-{
-	*x = ((int)gInput.chosen_vectors[0].m_x0 + (int)gInput.chosen_vectors[0].m_x1
-			+ (int)gInput.chosen_vectors[1].m_x0 + (int)gInput.chosen_vectors[1].m_x1) / 4;
-	*y = ((int)gInput.chosen_vectors[0].m_y0 + (int)gInput.chosen_vectors[0].m_y1
-			+ (int)gInput.chosen_vectors[1].m_y0 + (int)gInput.chosen_vectors[1].m_y1) / 4;
-}
-
-static void GetPixelLine(Pixy2SPI_SS *pixy)
-{
-	int 	x, y;
-	int 	y_upper, y_down;
-	uint8_t	r, g, b;
-
-	GetPixelLineCenter(&x, &y);
-	y_upper = y - (PIXEL_LINE_SIZE / 2);
-	y_down = y + (PIXEL_LINE_SIZE / 2);
-
-	if (y_upper < 0)
-		y_upper = 0;
-	if (y_down > PIXY_VIDEO_Y_MAX)
-		y_down = PIXY_VIDEO_Y_MAX;
-
-	ResetPixelLine();
-
-	for (int y = y_upper; y <= y_down; y++)
-	{
-		(*pixy).video.getRGB(x, y, &r, &g, &b, false);
-		gInput.pixel_line[y - y_upper] = (int)r + (int)g + (int)b;
-	}
-}
+//static void GetPixelLineCenter(int *x, int *y)
+//{
+//	*x = ((int)gInput.chosen_vectors[0].m_x0 + (int)gInput.chosen_vectors[0].m_x1
+//			+ (int)gInput.chosen_vectors[1].m_x0 + (int)gInput.chosen_vectors[1].m_x1) / 4;
+//	*y = ((int)gInput.chosen_vectors[0].m_y0 + (int)gInput.chosen_vectors[0].m_y1
+//			+ (int)gInput.chosen_vectors[1].m_y0 + (int)gInput.chosen_vectors[1].m_y1) / 4;
+//}
+//
+//static void GetPixelLine(Pixy2SPI_SS *pixy)
+//{
+//	int 	x, y;
+//	int 	y_upper, y_down;
+//	uint8_t	r, g, b;
+//
+//	GetPixelLineCenter(&x, &y);
+//	y_upper = y - (PIXEL_LINE_SIZE / 2);
+//	y_down = y + (PIXEL_LINE_SIZE / 2);
+//
+//	if (y_upper < 0)
+//		y_upper = 0;
+//	if (y_down > PIXY_VIDEO_Y_MAX)
+//		y_down = PIXY_VIDEO_Y_MAX;
+//
+//	ResetPixelLine();
+//
+//	for (int y = y_upper; y <= y_down; y++)
+//	{
+//		(*pixy).video.getRGB(x, y, &r, &g, &b, false);
+//		gInput.pixel_line[y - y_upper] = (int)r + (int)g + (int)b;
+//	}
+//}
 
 // Функция записывает в буфер те векторы, которые были в камере на протяжении
 // нескольких кадров

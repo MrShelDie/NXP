@@ -1154,13 +1154,13 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 ./source/Applications/gCompute.o
  .text._Z14gCompute_Setupv
                 0x0000000000000000        0xe ./source/Applications/gCompute.o
- .text._ZL19compute_main_vectoriiPiS_
+ .text._ZL19compute_main_vectoriiRiS_
                 0x0000000000000000       0x2e ./source/Applications/gCompute.o
  .text._ZL13left_or_righti
                 0x0000000000000000       0x22 ./source/Applications/gCompute.o
  .text._ZL22compute_angle_by_pointii
                 0x0000000000000000       0xbc ./source/Applications/gCompute.o
- .text._ZL14get_main_pointPiS_
+ .text._ZL14get_main_pointRiS_
                 0x0000000000000000       0x4c ./source/Applications/gCompute.o
  .text._ZL23compute_angle_by_1_vectv
                 0x0000000000000000       0x44 ./source/Applications/gCompute.o
@@ -1168,8 +1168,8 @@ Discarded input sections
                 0x0000000000000000       0x60 ./source/Applications/gCompute.o
  .text._Z13CheckStopLinev
                 0x0000000000000000       0x84 ./source/Applications/gCompute.o
- .debug_info    0x0000000000000000     0x14a1 ./source/Applications/gCompute.o
- .debug_abbrev  0x0000000000000000      0x23c ./source/Applications/gCompute.o
+ .debug_info    0x0000000000000000     0x14a7 ./source/Applications/gCompute.o
+ .debug_abbrev  0x0000000000000000      0x245 ./source/Applications/gCompute.o
  .debug_aranges
                 0x0000000000000000       0x58 ./source/Applications/gCompute.o
  .debug_ranges  0x0000000000000000       0x48 ./source/Applications/gCompute.o
@@ -1295,18 +1295,11 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./source/Applications/gInput.o
  .group         0x0000000000000000        0xc ./source/Applications/gInput.o
  .group         0x0000000000000000        0xc ./source/Applications/gInput.o
- .group         0x0000000000000000        0xc ./source/Applications/gInput.o
  .text          0x0000000000000000        0x0 ./source/Applications/gInput.o
  .data          0x0000000000000000        0x0 ./source/Applications/gInput.o
  .bss           0x0000000000000000        0x0 ./source/Applications/gInput.o
  .text._Z12gInput_Setupv
                 0x0000000000000000        0xe ./source/Applications/gInput.o
- .text._ZL18GetPixelLineCenterPiS_
-                0x0000000000000000       0x68 ./source/Applications/gInput.o
- .text._ZL12GetPixelLineP6TPixy2I11Link2SPI_SSE
-                0x0000000000000000       0xa4 ./source/Applications/gInput.o
- .text._ZN10Pixy2VideoI11Link2SPI_SSE6getRGBEttPhS2_S2_b
-                0x0000000000000000       0xe4 ./source/Applications/gInput.o
  .debug_macro   0x0000000000000000      0xb7a ./source/Applications/gInput.o
  .debug_macro   0x0000000000000000       0x16 ./source/Applications/gInput.o
  .debug_macro   0x0000000000000000       0x9c ./source/Applications/gInput.o
@@ -4791,18 +4784,18 @@ END GROUP
  .text.UART4_RX_TX_IRQHandler
                 0x00000000000024cc       0x60 ./source/Interfaces/iUart.o
                 0x00000000000024cc                UART4_RX_TX_IRQHandler
- .text._ZL19Choose1DirectVectorP13VectorFlagged
+ .text._ZL19Choose1DirectVectorPK13VectorFlagged
                 0x000000000000252c       0x4c ./source/Applications/gInput.o
- .text._ZL20Choose2DirectVectorsiP13VectorFlagged
+ .text._ZL20Choose2DirectVectorsiPK13VectorFlagged
                 0x0000000000002578       0xfc ./source/Applications/gInput.o
  .text._ZL17SortChosenVectorsv
                 0x0000000000002674       0x48 ./source/Applications/gInput.o
- .text._ZN6TPixy2I11Link2SPI_SSE10recvPacketEv
-                0x00000000000026bc      0x120 ./source/Applications/gInput.o
-                0x00000000000026bc                TPixy2<Link2SPI_SS>::recvPacket()
  .text._ZN9Pixy2LineI11Link2SPI_SSE11getFeaturesEhhb
-                0x00000000000027dc      0x1b4 ./source/Applications/gInput.o
-                0x00000000000027dc                Pixy2Line<Link2SPI_SS>::getFeatures(unsigned char, unsigned char, bool)
+                0x00000000000026bc      0x1b4 ./source/Applications/gInput.o
+                0x00000000000026bc                Pixy2Line<Link2SPI_SS>::getFeatures(unsigned char, unsigned char, bool)
+ .text._ZN6TPixy2I11Link2SPI_SSE10recvPacketEv
+                0x0000000000002870      0x120 ./source/Applications/gInput.o
+                0x0000000000002870                TPixy2<Link2SPI_SS>::recvPacket()
  .text._ZN6TPixy2I11Link2SPI_SSE7getSyncEv
                 0x0000000000002990       0xb4 ./source/Applications/gInput.o
                 0x0000000000002990                TPixy2<Link2SPI_SS>::getSync()
@@ -5267,7 +5260,7 @@ END GROUP
  .text._ZN11Link2SPI_SS4sendEPhh
                 0x0000000000004ab4       0x52 ./source/Applications/gInput.o
                 0x0000000000004ab4                Link2SPI_SS::send(unsigned char*, unsigned char)
- .text._ZL10CopyVectorP13VectorFlaggedP6Vector
+ .text._ZL10CopyVectorR13VectorFlaggedR6Vector
                 0x0000000000004b06       0x46 ./source/Applications/gInput.o
  .text._ZL30CopyPixyVectorsToVectorFlaggedP6VectorP13VectorFlaggedh
                 0x0000000000004b4c       0x50 ./source/Applications/gInput.o
@@ -5719,7 +5712,7 @@ END GROUP
 OUTPUT(NXP.axf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x0000000000000000     0xf800
+.debug_info     0x0000000000000000     0xf6c5
  .debug_info    0x0000000000000000      0x93d ./startup/startup_mk64f12.o
  .debug_info    0x000000000000093d      0x72d ./source/Modules/mAccelMagneto.o
  .debug_info    0x000000000000106a      0x1f4 ./source/Modules/mAd.o
@@ -5740,15 +5733,15 @@ LOAD linker stubs
  .debug_info    0x000000000000520e      0xc77 ./source/Interfaces/iPit.o
  .debug_info    0x0000000000005e85      0xa9b ./source/Interfaces/iSpi.o
  .debug_info    0x0000000000006920      0xba6 ./source/Interfaces/iUart.o
- .debug_info    0x00000000000074c6     0x1d2e ./source/Applications/gInput.o
- .debug_info    0x00000000000091f4      0x1dd ./source/Applications/gMBox.o
- .debug_info    0x00000000000093d1     0x1b60 ./source/main.o
- .debug_info    0x000000000000af31       0x3c ./source/semihost_hardfault.o
- .debug_info    0x000000000000af6d     0x2088 ./drivers/fsl_i2c.o
- .debug_info    0x000000000000cff5     0x21c2 ./drivers/fsl_uart.o
- .debug_info    0x000000000000f1b7      0x649 ./device/system_MK64F12.o
+ .debug_info    0x00000000000074c6     0x1bf3 ./source/Applications/gInput.o
+ .debug_info    0x00000000000090b9      0x1dd ./source/Applications/gMBox.o
+ .debug_info    0x0000000000009296     0x1b60 ./source/main.o
+ .debug_info    0x000000000000adf6       0x3c ./source/semihost_hardfault.o
+ .debug_info    0x000000000000ae32     0x2088 ./drivers/fsl_i2c.o
+ .debug_info    0x000000000000ceba     0x21c2 ./drivers/fsl_uart.o
+ .debug_info    0x000000000000f07c      0x649 ./device/system_MK64F12.o
 
-.debug_abbrev   0x0000000000000000     0x2d77
+.debug_abbrev   0x0000000000000000     0x2d56
  .debug_abbrev  0x0000000000000000      0x17b ./startup/startup_mk64f12.o
  .debug_abbrev  0x000000000000017b      0x211 ./source/Modules/mAccelMagneto.o
  .debug_abbrev  0x000000000000038c       0xcc ./source/Modules/mAd.o
@@ -5769,15 +5762,15 @@ LOAD linker stubs
  .debug_abbrev  0x0000000000001491      0x258 ./source/Interfaces/iPit.o
  .debug_abbrev  0x00000000000016e9      0x1f2 ./source/Interfaces/iSpi.o
  .debug_abbrev  0x00000000000018db      0x276 ./source/Interfaces/iUart.o
- .debug_abbrev  0x0000000000001b51      0x409 ./source/Applications/gInput.o
- .debug_abbrev  0x0000000000001f5a       0xd7 ./source/Applications/gMBox.o
- .debug_abbrev  0x0000000000002031      0x422 ./source/main.o
- .debug_abbrev  0x0000000000002453       0x31 ./source/semihost_hardfault.o
- .debug_abbrev  0x0000000000002484      0x370 ./drivers/fsl_i2c.o
- .debug_abbrev  0x00000000000027f4      0x43b ./drivers/fsl_uart.o
- .debug_abbrev  0x0000000000002c2f      0x148 ./device/system_MK64F12.o
+ .debug_abbrev  0x0000000000001b51      0x3e8 ./source/Applications/gInput.o
+ .debug_abbrev  0x0000000000001f39       0xd7 ./source/Applications/gMBox.o
+ .debug_abbrev  0x0000000000002010      0x422 ./source/main.o
+ .debug_abbrev  0x0000000000002432       0x31 ./source/semihost_hardfault.o
+ .debug_abbrev  0x0000000000002463      0x370 ./drivers/fsl_i2c.o
+ .debug_abbrev  0x00000000000027d3      0x43b ./drivers/fsl_uart.o
+ .debug_abbrev  0x0000000000002c0e      0x148 ./device/system_MK64F12.o
 
-.debug_aranges  0x0000000000000000      0xe80
+.debug_aranges  0x0000000000000000      0xe68
  .debug_aranges
                 0x0000000000000000      0x330 ./startup/startup_mk64f12.o
  .debug_aranges
@@ -5819,21 +5812,21 @@ LOAD linker stubs
  .debug_aranges
                 0x0000000000000920       0x80 ./source/Interfaces/iUart.o
  .debug_aranges
-                0x00000000000009a0       0xa8 ./source/Applications/gInput.o
+                0x00000000000009a0       0x90 ./source/Applications/gInput.o
  .debug_aranges
-                0x0000000000000a48       0x20 ./source/Applications/gMBox.o
+                0x0000000000000a30       0x20 ./source/Applications/gMBox.o
  .debug_aranges
-                0x0000000000000a68       0x90 ./source/main.o
+                0x0000000000000a50       0x90 ./source/main.o
  .debug_aranges
-                0x0000000000000af8       0x20 ./source/semihost_hardfault.o
+                0x0000000000000ae0       0x20 ./source/semihost_hardfault.o
  .debug_aranges
-                0x0000000000000b18      0x180 ./drivers/fsl_i2c.o
+                0x0000000000000b00      0x180 ./drivers/fsl_i2c.o
  .debug_aranges
-                0x0000000000000c98      0x1b8 ./drivers/fsl_uart.o
+                0x0000000000000c80      0x1b8 ./drivers/fsl_uart.o
  .debug_aranges
-                0x0000000000000e50       0x30 ./device/system_MK64F12.o
+                0x0000000000000e38       0x30 ./device/system_MK64F12.o
 
-.debug_ranges   0x0000000000000000      0xcd0
+.debug_ranges   0x0000000000000000      0xcb8
  .debug_ranges  0x0000000000000000      0x320 ./startup/startup_mk64f12.o
  .debug_ranges  0x0000000000000320       0x60 ./source/Modules/mAccelMagneto.o
  .debug_ranges  0x0000000000000380       0x30 ./source/Modules/mAd.o
@@ -5854,13 +5847,13 @@ LOAD linker stubs
  .debug_ranges  0x00000000000006e0       0x78 ./source/Interfaces/iPit.o
  .debug_ranges  0x0000000000000758       0x98 ./source/Interfaces/iSpi.o
  .debug_ranges  0x00000000000007f0       0x70 ./source/Interfaces/iUart.o
- .debug_ranges  0x0000000000000860       0x98 ./source/Applications/gInput.o
- .debug_ranges  0x00000000000008f8       0x10 ./source/Applications/gMBox.o
- .debug_ranges  0x0000000000000908       0x80 ./source/main.o
- .debug_ranges  0x0000000000000988       0x10 ./source/semihost_hardfault.o
- .debug_ranges  0x0000000000000998      0x170 ./drivers/fsl_i2c.o
- .debug_ranges  0x0000000000000b08      0x1a8 ./drivers/fsl_uart.o
- .debug_ranges  0x0000000000000cb0       0x20 ./device/system_MK64F12.o
+ .debug_ranges  0x0000000000000860       0x80 ./source/Applications/gInput.o
+ .debug_ranges  0x00000000000008e0       0x10 ./source/Applications/gMBox.o
+ .debug_ranges  0x00000000000008f0       0x80 ./source/main.o
+ .debug_ranges  0x0000000000000970       0x10 ./source/semihost_hardfault.o
+ .debug_ranges  0x0000000000000980      0x170 ./drivers/fsl_i2c.o
+ .debug_ranges  0x0000000000000af0      0x1a8 ./drivers/fsl_uart.o
+ .debug_ranges  0x0000000000000c98       0x20 ./device/system_MK64F12.o
 
 .debug_macro    0x0000000000000000     0x3ea3
  .debug_macro   0x0000000000000000       0x2a ./startup/startup_mk64f12.o
@@ -5924,7 +5917,7 @@ LOAD linker stubs
  .debug_macro   0x0000000000003e13       0x10 ./drivers/fsl_uart.o
  .debug_macro   0x0000000000003e23       0x80 ./device/system_MK64F12.o
 
-.debug_line     0x0000000000000000     0xa3f1
+.debug_line     0x0000000000000000     0xa23f
  .debug_line    0x0000000000000000      0x918 ./startup/startup_mk64f12.o
  .debug_line    0x0000000000000918      0x7ce ./source/Modules/mAccelMagneto.o
  .debug_line    0x00000000000010e6      0x2b5 ./source/Modules/mAd.o
@@ -5945,15 +5938,15 @@ LOAD linker stubs
  .debug_line    0x00000000000040a9      0x628 ./source/Interfaces/iPit.o
  .debug_line    0x00000000000046d1      0x723 ./source/Interfaces/iSpi.o
  .debug_line    0x0000000000004df4      0x4f5 ./source/Interfaces/iUart.o
- .debug_line    0x00000000000052e9      0xf70 ./source/Applications/gInput.o
- .debug_line    0x0000000000006259      0x159 ./source/Applications/gMBox.o
- .debug_line    0x00000000000063b2     0x1021 ./source/main.o
- .debug_line    0x00000000000073d3       0x59 ./source/semihost_hardfault.o
- .debug_line    0x000000000000742c     0x15d3 ./drivers/fsl_i2c.o
- .debug_line    0x00000000000089ff     0x16c0 ./drivers/fsl_uart.o
- .debug_line    0x000000000000a0bf      0x332 ./device/system_MK64F12.o
+ .debug_line    0x00000000000052e9      0xdbe ./source/Applications/gInput.o
+ .debug_line    0x00000000000060a7      0x159 ./source/Applications/gMBox.o
+ .debug_line    0x0000000000006200     0x1021 ./source/main.o
+ .debug_line    0x0000000000007221       0x59 ./source/semihost_hardfault.o
+ .debug_line    0x000000000000727a     0x15d3 ./drivers/fsl_i2c.o
+ .debug_line    0x000000000000884d     0x16c0 ./drivers/fsl_uart.o
+ .debug_line    0x0000000000009f0d      0x332 ./device/system_MK64F12.o
 
-.debug_str      0x0000000000000000    0x883f1
+.debug_str      0x0000000000000000    0x883bf
  .debug_str     0x0000000000000000     0x3952 ./startup/startup_mk64f12.o
                                        0x39fe (size before relaxing)
  .debug_str     0x0000000000003952    0x6e8ac ./source/Modules/mAccelMagneto.o
@@ -5994,19 +5987,19 @@ LOAD linker stubs
                                       0x70c88 (size before relaxing)
  .debug_str     0x0000000000073f83      0x1fb ./source/Interfaces/iUart.o
                                       0x7111b (size before relaxing)
- .debug_str     0x000000000007417e     0x71b8 ./source/Applications/gInput.o
-                                       0xb38d (size before relaxing)
- .debug_str     0x000000000007b336       0x68 ./source/Applications/gMBox.o
+ .debug_str     0x000000000007417e     0x7180 ./source/Applications/gInput.o
+                                       0xb355 (size before relaxing)
+ .debug_str     0x000000000007b2fe       0x68 ./source/Applications/gMBox.o
                                        0x3f50 (size before relaxing)
- .debug_str     0x000000000007b39e     0xa711 ./source/main.o
+ .debug_str     0x000000000007b366     0xa717 ./source/main.o
                                       0x83204 (size before relaxing)
- .debug_str     0x0000000000085aaf       0x1f ./source/semihost_hardfault.o
+ .debug_str     0x0000000000085a7d       0x1f ./source/semihost_hardfault.o
                                        0x2d78 (size before relaxing)
- .debug_str     0x0000000000085ace     0x19eb ./drivers/fsl_i2c.o
+ .debug_str     0x0000000000085a9c     0x19eb ./drivers/fsl_i2c.o
                                       0x7e161 (size before relaxing)
- .debug_str     0x00000000000874b9      0xe65 ./drivers/fsl_uart.o
+ .debug_str     0x0000000000087487      0xe65 ./drivers/fsl_uart.o
                                       0x7e3ac (size before relaxing)
- .debug_str     0x000000000008831e       0xd3 ./device/system_MK64F12.o
+ .debug_str     0x00000000000882ec       0xd3 ./device/system_MK64F12.o
                                       0x777ad (size before relaxing)
 
 .comment        0x0000000000000000       0x49
@@ -6179,7 +6172,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x0000000000000cca       0x34 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.debug_frame    0x0000000000000000     0x3c94
+.debug_frame    0x0000000000000000     0x3c20
  .debug_frame   0x0000000000000000      0x8fc ./startup/startup_mk64f12.o
  .debug_frame   0x00000000000008fc      0x190 ./source/Modules/mAccelMagneto.o
  .debug_frame   0x0000000000000a8c       0xb8 ./source/Modules/mAd.o
@@ -6200,45 +6193,45 @@ LOAD linker stubs
  .debug_frame   0x0000000000001800      0x23c ./source/Interfaces/iPit.o
  .debug_frame   0x0000000000001a3c      0x2d4 ./source/Interfaces/iSpi.o
  .debug_frame   0x0000000000001d10      0x208 ./source/Interfaces/iUart.o
- .debug_frame   0x0000000000001f18      0x2b4 ./source/Applications/gInput.o
- .debug_frame   0x00000000000021cc       0x38 ./source/Applications/gMBox.o
- .debug_frame   0x0000000000002204      0x238 ./source/main.o
- .debug_frame   0x000000000000243c       0x20 ./source/semihost_hardfault.o
- .debug_frame   0x000000000000245c      0x694 ./drivers/fsl_i2c.o
- .debug_frame   0x0000000000002af0      0x74c ./drivers/fsl_uart.o
- .debug_frame   0x000000000000323c       0x74 ./device/system_MK64F12.o
- .debug_frame   0x00000000000032b0       0xac /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x000000000000335c       0x50 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00000000000033ac       0x24 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixunsdfsi.o)
- .debug_frame   0x00000000000033d0       0x24 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_truncdfsf2.o)
- .debug_frame   0x00000000000033f4       0x28 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-clock.o)
- .debug_frame   0x000000000000341c       0x20 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-errno.o)
- .debug_frame   0x000000000000343c       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-init.o)
- .debug_frame   0x0000000000003468       0x30 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-malloc.o)
- .debug_frame   0x0000000000003498       0x20 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-memset.o)
- .debug_frame   0x00000000000034b8       0x38 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x00000000000034f0       0x4c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x000000000000353c       0xac /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
- .debug_frame   0x00000000000035e8       0x60 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x0000000000003648       0x74 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-printf.o)
- .debug_frame   0x00000000000036bc       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x00000000000036e8       0x20 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-timesr.o)
- .debug_frame   0x0000000000003708       0x40 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-wbuf.o)
- .debug_frame   0x0000000000003748       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-wsetup.o)
- .debug_frame   0x0000000000003774       0x5c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-fflush.o)
- .debug_frame   0x00000000000037d0      0x14c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-findfp.o)
- .debug_frame   0x000000000000391c       0x54 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-fwalk.o)
- .debug_frame   0x0000000000003970       0xb0 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-lock.o)
- .debug_frame   0x0000000000003a20       0x58 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-makebuf.o)
- .debug_frame   0x0000000000003a78       0x30 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-mlock.o)
- .debug_frame   0x0000000000003aa8       0x5c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-reent.o)
- .debug_frame   0x0000000000003b04       0x88 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-stdio.o)
- .debug_frame   0x0000000000003b8c       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-writer.o)
- .debug_frame   0x0000000000003bb8       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-closer.o)
- .debug_frame   0x0000000000003be4       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-fstatr.o)
- .debug_frame   0x0000000000003c10       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-isattyr.o)
- .debug_frame   0x0000000000003c3c       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-lseekr.o)
- .debug_frame   0x0000000000003c68       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-readr.o)
+ .debug_frame   0x0000000000001f18      0x240 ./source/Applications/gInput.o
+ .debug_frame   0x0000000000002158       0x38 ./source/Applications/gMBox.o
+ .debug_frame   0x0000000000002190      0x238 ./source/main.o
+ .debug_frame   0x00000000000023c8       0x20 ./source/semihost_hardfault.o
+ .debug_frame   0x00000000000023e8      0x694 ./drivers/fsl_i2c.o
+ .debug_frame   0x0000000000002a7c      0x74c ./drivers/fsl_uart.o
+ .debug_frame   0x00000000000031c8       0x74 ./device/system_MK64F12.o
+ .debug_frame   0x000000000000323c       0xac /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00000000000032e8       0x50 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x0000000000003338       0x24 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixunsdfsi.o)
+ .debug_frame   0x000000000000335c       0x24 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_truncdfsf2.o)
+ .debug_frame   0x0000000000003380       0x28 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-clock.o)
+ .debug_frame   0x00000000000033a8       0x20 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-errno.o)
+ .debug_frame   0x00000000000033c8       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-init.o)
+ .debug_frame   0x00000000000033f4       0x30 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-malloc.o)
+ .debug_frame   0x0000000000003424       0x20 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x0000000000003444       0x38 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x000000000000347c       0x4c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00000000000034c8       0xac /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-nano-vfprintf.o)
+ .debug_frame   0x0000000000003574       0x60 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x00000000000035d4       0x74 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-printf.o)
+ .debug_frame   0x0000000000003648       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x0000000000003674       0x20 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-timesr.o)
+ .debug_frame   0x0000000000003694       0x40 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-wbuf.o)
+ .debug_frame   0x00000000000036d4       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-wsetup.o)
+ .debug_frame   0x0000000000003700       0x5c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-fflush.o)
+ .debug_frame   0x000000000000375c      0x14c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-findfp.o)
+ .debug_frame   0x00000000000038a8       0x54 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-fwalk.o)
+ .debug_frame   0x00000000000038fc       0xb0 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-lock.o)
+ .debug_frame   0x00000000000039ac       0x58 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-makebuf.o)
+ .debug_frame   0x0000000000003a04       0x30 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-mlock.o)
+ .debug_frame   0x0000000000003a34       0x5c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-reent.o)
+ .debug_frame   0x0000000000003a90       0x88 /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-stdio.o)
+ .debug_frame   0x0000000000003b18       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-writer.o)
+ .debug_frame   0x0000000000003b44       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-closer.o)
+ .debug_frame   0x0000000000003b70       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-fstatr.o)
+ .debug_frame   0x0000000000003b9c       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-isattyr.o)
+ .debug_frame   0x0000000000003bc8       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-lseekr.o)
+ .debug_frame   0x0000000000003bf4       0x2c /usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.5.0.202107051138/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-readr.o)
 
 Cross Reference Table
 
@@ -6533,7 +6526,6 @@ Pixy2Line<Link2SPI_SS>::getAllFeatures(unsigned char, bool) ./source/Application
 Pixy2Line<Link2SPI_SS>::getFeatures(unsigned char, unsigned char, bool) ./source/Applications/gInput.o
 Pixy2Video<Link2SPI_SS>::Pixy2Video(TPixy2<Link2SPI_SS>*) ./source/main.o
 Pixy2Video<Link2SPI_SS>::Pixy2Video(TPixy2<Link2SPI_SS>*) ./source/main.o
-Pixy2Video<Link2SPI_SS>::getRGB(unsigned short, unsigned short, unsigned char*, unsigned char*, unsigned char*, bool) ./source/Applications/gInput.o
 RNG_DriverIRQHandler                              ./startup/startup_mk64f12.o
 RNG_IRQHandler                                    ./startup/startup_mk64f12.o
 RTC_DriverIRQHandler                              ./startup/startup_mk64f12.o
@@ -6546,7 +6538,6 @@ Reserved71_DriverIRQHandler                       ./startup/startup_mk64f12.o
 Reserved71_IRQHandler                             ./startup/startup_mk64f12.o
 ResetISR                                          ./startup/startup_mk64f12.o
 ResetPixelLine()                                  ./source/Applications/gMBox.o
-                                                  ./source/Applications/gInput.o
 SDHC_DriverIRQHandler                             ./startup/startup_mk64f12.o
 SDHC_IRQHandler                                   ./startup/startup_mk64f12.o
 SDK_DelayAtLeastUs                                ./drivers/fsl_common_arm.o

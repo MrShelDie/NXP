@@ -44,12 +44,13 @@
 
 void gCompute_Setup(void)
 {
+
 }
 
-static void compute_main_vector(int x, int y, int *dx, int *dy)
+static void compute_main_vector(int x, int y, int &dx, int &dy)
 {
-	*dx = x - PIXY_MID_X;
-	*dy = (y - PIXY_MAX_Y) * (-1);
+	dx = x - PIXY_MID_X;
+	dy = (y - PIXY_MAX_Y) * (-1);
 }
 
 static int left_or_right(int dx)
@@ -63,10 +64,10 @@ static int compute_angle_by_point(int dx, int dy)
 	return acos(dy/(sqrt(dx*dx + dy*dy)))/pi * 180 * left_or_right(dx);
 }
 
-static void get_main_point(int *x, int *y)
+static void get_main_point(int &x, int &y)
 {
-	*x = (gInput.chosen_vectors[1].m_x1 + gInput.chosen_vectors[0].m_x1) / 2;
-	*y = (gInput.chosen_vectors[1].m_y1 + gInput.chosen_vectors[0].m_y1) / 2;
+	x = (gInput.chosen_vectors[1].m_x1 + gInput.chosen_vectors[0].m_x1) / 2;
+	y = (gInput.chosen_vectors[1].m_y1 + gInput.chosen_vectors[0].m_y1) / 2;
 }
 
 static int	compute_angle_by_1_vect()
@@ -91,8 +92,8 @@ void gCompute_Execute(void)
 
 	if (gInput.chosen_count == 2)
 	{
-		get_main_point(&x, &y);
-		compute_main_vector(x, y, &dx, &dy);
+		get_main_point(x, y);
+		compute_main_vector(x, y, dx, dy);
 		gCompute.turn_angle = compute_angle_by_point(dx, dy);
 	}
 	else if (gInput.chosen_count == 1)

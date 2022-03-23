@@ -1,18 +1,15 @@
 /home/Nick/NXP/NXP/source/Pixy/Pixy2SPI_SS.h:69:11:int16_t Link2SPI_SS::recv(uint8_t*, uint8_t, uint16_t*)	32	static
 /home/Nick/NXP/NXP/source/Pixy/Pixy2SPI_SS.h:91:11:int16_t Link2SPI_SS::send(uint8_t*, uint8_t)	32	static
-../source/Applications/gInput.cpp:54:13:void CopyVector(VectorFlagged*, Vector*)	16	static
+../source/Applications/gInput.cpp:54:13:void CopyVector(VectorFlagged&, Vector&)	16	static
 ../source/Applications/gInput.cpp:65:12:int CopyPixyVectorsToVectorFlagged(Vector*, VectorFlagged*, uint8_t)	32	static
 ../source/Applications/gInput.cpp:75:12:int FiltreVectors(Vector*, VectorFlagged*, uint8_t)	40	static
-../source/Applications/gInput.cpp:105:13:void Choose1DirectVector(VectorFlagged*)	24	static
-../source/Applications/gInput.cpp:132:13:void Choose2DirectVectors(int, VectorFlagged*)	24	static
+../source/Applications/gInput.cpp:105:13:void Choose1DirectVector(const VectorFlagged*)	24	static
+../source/Applications/gInput.cpp:132:13:void Choose2DirectVectors(int, const VectorFlagged*)	24	static
 ../source/Applications/gInput.cpp:161:13:void SortChosenVectors()	24	static
 ../source/Applications/gInput.cpp:173:6:void gInput_Setup()	4	static
-../source/Applications/gInput.cpp:177:13:void GetPixelLineCenter(int*, int*)	16	static
-../source/Applications/gInput.cpp:185:13:void GetPixelLine(Pixy2SPI_SS*)	64	static
-../source/Applications/gInput.cpp:237:6:void gInput_Execute(Pixy2SPI_SS&)	344	static
-/home/Nick/NXP/NXP/source/Pixy/Pixy2Video.h:65:8:int8_t Pixy2Video<LinkType>::getRGB(uint16_t, uint16_t, uint8_t*, uint8_t*, uint8_t*, bool) [with LinkType = Link2SPI_SS]	24	static
+../source/Applications/gInput.cpp:238:6:void gInput_Execute(Pixy2SPI_SS&)	344	static
 /home/Nick/NXP/NXP/source/Pixy/Pixy2Line.h:149:10:int8_t Pixy2Line<LinkType>::getAllFeatures(uint8_t, bool) [with LinkType = Link2SPI_SS]	16	static
+/home/Nick/NXP/NXP/source/Pixy/Pixy2Line.h:175:8:int8_t Pixy2Line<LinkType>::getFeatures(uint8_t, uint8_t, bool) [with LinkType = Link2SPI_SS]	24	static
 /home/Nick/NXP/NXP/source/Pixy/TPixy2.h:301:9:int16_t TPixy2<LinkType>::sendPacket() [with LinkType = Link2SPI_SS]	16	static
 /home/Nick/NXP/NXP/source/Pixy/TPixy2.h:252:9:int16_t TPixy2<LinkType>::recvPacket() [with LinkType = Link2SPI_SS]	24	static
-/home/Nick/NXP/NXP/source/Pixy/Pixy2Line.h:175:8:int8_t Pixy2Line<LinkType>::getFeatures(uint8_t, uint8_t, bool) [with LinkType = Link2SPI_SS]	24	static
 /home/Nick/NXP/NXP/source/Pixy/TPixy2.h:203:9:int16_t TPixy2<LinkType>::getSync() [with LinkType = Link2SPI_SS]	32	static
