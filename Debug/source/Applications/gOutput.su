@@ -1,3 +1,0 @@
-../source/Applications/gOutput.cpp:54:6:void gOutput_Setup()	4	static
-../source/Applications/gOutput.cpp:59:7:float computeServoDuty()	4	static
-../source/Applications/gOutput.cpp:69:6:void gOutput_Execute()	16	static

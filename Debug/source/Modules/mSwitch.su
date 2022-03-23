@@ -1,4 +1,0 @@
-../source/Modules/mSwitch.c:52:6:mSwitch_Setup	8	static
-../source/Modules/mSwitch.c:61:6:mSwitch_Open	4	static
-../source/Modules/mSwitch.c:70:6:mSwitch_ReadSwitch	24	static
-../source/Modules/mSwitch.c:98:6:mSwitch_ReadPushBut	24	static

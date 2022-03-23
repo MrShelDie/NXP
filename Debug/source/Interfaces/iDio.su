@@ -1,3 +1,0 @@
-../source/Interfaces/iDio.c:55:6:iDio_SetPortDirection	24	static
-../source/Interfaces/iDio.c:104:6:iDio_SetPort	24	static
-../source/Interfaces/iDio.c:159:6:iDio_GetPort	24	static

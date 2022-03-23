@@ -1,3 +1,0 @@
-../source/Modules/mDac.c:52:6:mDac_Setup	8	static
-../source/Modules/mDac.c:61:6:mDac_Open	4	static
-../source/Modules/mDac.c:69:6:mDac_SetDac0Output	16	static

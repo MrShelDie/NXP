@@ -1,5 +1,0 @@
-../source/Interfaces/iCpu.c:69:13:iCpu_PllInit	4	static
-../source/Interfaces/iCpu.c:148:13:iCpu_PinFctCfg	4	static
-../source/Interfaces/iCpu.c:220:6:iCpu_PeriphClkInit	4	static
-../source/Interfaces/iCpu.c:252:13:iCpu_VREFInit	16	static
-../source/Interfaces/iCpu.c:271:6:iCpu_SysInit	8	static

@@ -1,5 +1,0 @@
-../source/Modules/mRS232.c:52:6:mRs232_Setup	4	static
-../source/Modules/mRS232.c:59:6:mRs232_Open	4	static
-../source/Modules/mRS232.c:66:6:mRs232_Close	4	static
-../source/Modules/mRS232.c:75:6:mRs232_Uart4WriteString	16	static
-../source/Modules/mRS232.c:96:6:mRs232_Uart4WriteChar	16	static

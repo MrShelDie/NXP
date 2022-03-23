@@ -90,6 +90,13 @@ static int	getAngleByOneVector()
 		return (RESTORE_ANGLE * -1);
 }
 
+
+void checkStopLine(void)
+{
+	if(gCompute.StopKey1 == true)gCompute.StopKey2 = true;
+	else if(gCompute.StopKey1 == false && gCompute.StopKey2 == true) mTimer_SetMotorDuty(0, 0);//остановка
+}
+
 void gCompute_Execute(void)
 {
 	int	x, y;
@@ -103,6 +110,7 @@ void gCompute_Execute(void)
 	}
 	else if (gInput.chosen_count == 1)
 		gCompute.turn_angle = getAngleByOneVector();
+	checkStopLine();//Пора ли останавливаться
 }
 
 //bool CheckStopLine()

@@ -1,8 +1,0 @@
-../source/Modules/mDelay.c:52:6:mDelay_Setup	8	static
-../source/Modules/mDelay.c:70:6:mDelay_Open	8	static
-../source/Modules/mDelay.c:79:6:mDelay_Close	4	static
-../source/Modules/mDelay.c:90:7:mDelay_GetDelay	16	static
-../source/Modules/mDelay.c:100:6:mDelay_DelayRelease	16	static
-../source/Modules/mDelay.c:111:6:mDelay_ReStart	16	static
-../source/Modules/mDelay.c:122:6:mDelay_IsDelayDone	16	static
-../source/Modules/mDelay.c:131:6:usleep	24	static

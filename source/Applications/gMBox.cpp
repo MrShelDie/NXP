@@ -38,14 +38,8 @@ Description dans le fichier gMBox.h
 
 #include "gMBox.h"
 
-//-----------------------------------------------------------------------------
-// Structure du gestionnaire Input
-//-----------------------------------------------------------------------------
 InputStruct gInput;
 
-//-----------------------------------------------------------------------------
-// Structure du gestionnaire Compute
-//-----------------------------------------------------------------------------
 ComputeStruct gCompute;
 
 //void ResetPixelLine()

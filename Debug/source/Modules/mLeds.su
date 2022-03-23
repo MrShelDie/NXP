@@ -1,4 +1,0 @@
-../source/Modules/mLeds.c:52:6:mLeds_Setup	8	static
-../source/Modules/mLeds.c:61:6:mLeds_Open	4	static
-../source/Modules/mLeds.c:70:6:mLeds_Write	24	static
-../source/Modules/mLeds.c:91:6:mLeds_Toggle	24	static
