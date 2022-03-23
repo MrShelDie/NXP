@@ -83,6 +83,6 @@ typedef struct
 
 extern ComputeStruct gCompute;
 
-void ResetPixelLine();
+//void ResetPixelLine();
 
 #endif /* __GMBOX__ */

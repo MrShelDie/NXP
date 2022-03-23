@@ -51,7 +51,7 @@ $History: $
 // Раскомментируй строку ниже, чтобы включить вывод информации в консоль
 #define _DEBUG_
 // Время фильтрации входных векторов
-#define INPUT_DURATION 250
+#define INPUT_DURATION 150
 
 #define PIXY_VIDEO_Y_MAX 207
 

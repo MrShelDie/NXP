@@ -43,7 +43,7 @@ Description dans le fichier gOutput.h
 //-------------------------------------------------------------------------
 // D�claration des constantes
 //-------------------------------------------------------------------------
-#define MAX_SERVO_ANGLE 42.21
+#define MAX_SERVO_ANGLE 20.0f
 //-----------------------------------------------------------------------------
 // D�claration des variables globales
 //-----------------------------------------------------------------------------
@@ -53,9 +53,10 @@ Description dans le fichier gOutput.h
 //-----------------------------------------------------------------------------
 void gOutput_Setup(void)
 {
+
 }
 
-float compute_servo_duty()
+float computeServoDuty()
 {
 	if (gCompute.turn_angle < -MAX_SERVO_ANGLE)
 		return (-1);
@@ -64,12 +65,10 @@ float compute_servo_duty()
 	else
 		return (gCompute.turn_angle / MAX_SERVO_ANGLE);
 }
-//-----------------------------------------------------------------------------
-// Ex�cution du gestionnaire
-//-----------------------------------------------------------------------------
+
 void gOutput_Execute(void)
 {
-	float servo_duty = compute_servo_duty();
+	float servo_duty = computeServoDuty();
 	mTimer_SetServoDuty(0, servo_duty);
 
 #ifdef _DEBUG_

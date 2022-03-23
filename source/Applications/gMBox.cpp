@@ -48,8 +48,8 @@ InputStruct gInput;
 //-----------------------------------------------------------------------------
 ComputeStruct gCompute;
 
-void ResetPixelLine()
-{
-	for (int i = 0; i < PIXY_VIDEO_Y_MAX; i++)
-		gInput.pixel_line[i] = -1;
-}
+//void ResetPixelLine()
+//{
+//	for (int i = 0; i < PIXY_VIDEO_Y_MAX; i++)
+//		gInput.pixel_line[i] = -1;
+//}

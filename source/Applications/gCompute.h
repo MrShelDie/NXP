@@ -42,10 +42,10 @@
 #define pi 				3.1415926535
 #define PIXY_MID_X 		39
 #define PIXY_MAX_Y 		51
-#define DROP_MAX		50
-#define RESTORE_ANGLE	45
+//#define DROP_MAX		50
+#define RESTORE_ANGLE	15
 
-bool CheckStopLine();
+// bool CheckStopLine();
 
 //-----------------------------------------------------------------------------
 // Configuration du gestionnaire

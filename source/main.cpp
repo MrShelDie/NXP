@@ -168,24 +168,24 @@ int main(void)
 		while (!mSwitch_ReadSwitch(kSw1));
 
 		// Запускает двигатель
-		mTimer_SetMotorDuty(-0.5, 0.5);
+		mTimer_SetMotorDuty(-0.6, 0.6);
 
 		// Цикл работает, пока поднят переключатель
 		while (mSwitch_ReadSwitch(kSw1))
 		{
 			gInput_Execute(pixy);
-			if (gInput.chosen_count == 1)
-				printf("{(x0 = %d, y0 = %d), (x1 = %d, y1 = %d)}\n", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
-						gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
-			else
-			{
-				printf("{(x0 = %d, y0 = %d), (x1 = %d, y1 = %d)}, ", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
-						gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
-				printf("{(x0 = %d, y0 = %d), (x1 = %d, y1 = %d)}\n", gInput.chosen_vectors[1].m_x0, gInput.chosen_vectors[1].m_y0,
-						gInput.chosen_vectors[1].m_x1, gInput.chosen_vectors[1].m_y1);
-			}
-			//gCompute_Execute();
-			//gOutput_Execute();
+//			if (gInput.chosen_count == 1)
+//				printf("{(x0 = %d, y0 = %d), (x1 = %d, y1 = %d)}\n", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
+//						gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
+//			else
+//			{
+//				printf("{(x0 = %d, y0 = %d), (x1 = %d, y1 = %d)}, ", gInput.chosen_vectors[0].m_x0, gInput.chosen_vectors[0].m_y0,
+//						gInput.chosen_vectors[0].m_x1, gInput.chosen_vectors[0].m_y1);
+//				printf("{(x0 = %d, y0 = %d), (x1 = %d, y1 = %d)}\n", gInput.chosen_vectors[1].m_x0, gInput.chosen_vectors[1].m_y0,
+//						gInput.chosen_vectors[1].m_x1, gInput.chosen_vectors[1].m_y1);
+//			}
+			gCompute_Execute();
+			gOutput_Execute();
 		}
 	}
 

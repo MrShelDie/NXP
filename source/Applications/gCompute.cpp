@@ -47,42 +47,47 @@ void gCompute_Setup(void)
 
 }
 
-static void compute_main_vector(int x, int y, int &dx, int &dy)
+static void setMainVectorDeviation(int x, int y, int &dx, int &dy)
 {
 	dx = x - PIXY_MID_X;
 	dy = (y - PIXY_MAX_Y) * (-1);
 }
 
-static int left_or_right(int dx)
+static int getLeftOrRightDirection(int dx)
 {
 	if (dx<0) return 1;
 	else return -1;
 }
 
-static int compute_angle_by_point(int dx, int dy)
+static int computeAngleByMainVectorDeviation(int dx, int dy)
 {
-	return acos(dy/(sqrt(dx*dx + dy*dy)))/pi * 180 * left_or_right(dx);
+	return acos(dy/(sqrt(dx*dx + dy*dy)))/pi * 180 * getLeftOrRightDirection(dx);
 }
 
-static void get_main_point(int &x, int &y)
+static void setMainPoint(int &x, int &y)
 {
 	x = (gInput.chosen_vectors[1].m_x1 + gInput.chosen_vectors[0].m_x1) / 2;
 	y = (gInput.chosen_vectors[1].m_y1 + gInput.chosen_vectors[0].m_y1) / 2;
 }
 
-static int	compute_angle_by_1_vect()
+static int	getAngleByOneVector()
 {
-	if (gInput.chosen_vectors[0].m_index != -1)
-		return (RESTORE_ANGLE * (-1));
-	else if (gInput.chosen_vectors[1].m_index != -1)
+//	if (gInput.chosen_vectors[0].m_index != -1)
+//		return (RESTORE_ANGLE * (-1));
+//	else if (gInput.chosen_vectors[1].m_index != -1)
+//		return (RESTORE_ANGLE);
+//	else
+//	{
+//		if (gInput.chosen_vectors[2].m_x0 >= PIXY_MID_X)
+//			return (RESTORE_ANGLE);
+//		else
+//			return (RESTORE_ANGLE * (-1));
+//	}
+
+	if (gInput.chosen_vectors[0].m_x0 >= PIXY_MID_X)
 		return (RESTORE_ANGLE);
 	else
-	{
-		if (gInput.chosen_vectors[2].m_x0 >= PIXY_MID_X)
-			return (RESTORE_ANGLE);
-		else
-			return (RESTORE_ANGLE * (-1));
-	}
+		return (RESTORE_ANGLE * -1);
 }
 
 void gCompute_Execute(void)
@@ -92,22 +97,22 @@ void gCompute_Execute(void)
 
 	if (gInput.chosen_count == 2)
 	{
-		get_main_point(x, y);
-		compute_main_vector(x, y, dx, dy);
-		gCompute.turn_angle = compute_angle_by_point(dx, dy);
+		setMainPoint(x, y);
+		setMainVectorDeviation(x, y, dx, dy);
+		gCompute.turn_angle = computeAngleByMainVectorDeviation(dx, dy);
 	}
 	else if (gInput.chosen_count == 1)
-		gCompute.turn_angle = compute_angle_by_1_vect();
+		gCompute.turn_angle = getAngleByOneVector();
 }
 
-bool CheckStopLine()
-{
-	for (int i = 0; i < PIXEL_LINE_SIZE - 1; i++)
-	{
-		if ((gInput.pixel_line[i] != -1 && gInput.pixel_line[i + 1] != -1)
-			&& (abs(gInput.pixel_line[i] - gInput.pixel_line[i + 1]) > DROP_MAX)
-		)
-			return (true);
-	}
-	return (false);
-}
+//bool CheckStopLine()
+//{
+//	for (int i = 0; i < PIXEL_LINE_SIZE - 1; i++)
+//	{
+//		if ((gInput.pixel_line[i] != -1 && gInput.pixel_line[i + 1] != -1)
+//			&& (abs(gInput.pixel_line[i] - gInput.pixel_line[i + 1]) > DROP_MAX)
+//		)
+//			return (true);
+//	}
+//	return (false);
+//}
