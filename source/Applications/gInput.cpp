@@ -201,10 +201,27 @@ void gInput_Execute(Pixy2SPI_SS &pixy)
 	{
 		Choose2DirectVectors(not_interf_vector_count, vectors);
 		SortChosenVectors();
-
 	}
 	else
 		Choose1DirectVector(vectors);
 
 	mDelay_DelayRelease(kPit1, input_delay_nb);
 }
+
+//void gInput_Execute(Pixy2SPI_SS &pixy)
+//{
+//	int				not_interf_vector_count = 0;
+//	VectorFlagged	vectors[VECTORS_SIZE];
+//
+//	pixy.line.getAllFeatures(LINE_VECTOR, true);
+//	not_interf_vector_count = CopyPixyVectorsToVectorFlagged(pixy.line.vectors, vectors, pixy.line.numVectors);
+//
+//
+//	if (not_interf_vector_count > 1)
+//	{
+//		Choose2DirectVectors(not_interf_vector_count, vectors);
+//		SortChosenVectors();
+//	}
+//	else
+//		Choose1DirectVector(vectors);
+//}

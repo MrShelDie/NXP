@@ -42,6 +42,8 @@
 #include <stdio.h>
 #include <cmath>
 
+#define MIN(X, Y) X < Y ? X : Y
+
 extern "C"
 {
 #include "Modules/mTimer.h"
@@ -71,16 +73,27 @@ static int computeAngleByMainVectorDeviation(int dx, int dy)
 
 static void setMainPoint(int &x, int &y)
 {
-	x = (gInput.chosen_vectors[1].m_x1 + gInput.chosen_vectors[0].m_x1) / 2;
-	y = (gInput.chosen_vectors[1].m_y1 + gInput.chosen_vectors[0].m_y1) / 2;
+	uint8_t	x0 = gInput.chosen_vectors[0].m_y1 < gInput.chosen_vectors[0].m_y0
+			? gInput.chosen_vectors[0].m_x1
+			: gInput.chosen_vectors[0].m_x0;
+
+	uint8_t	x1 = gInput.chosen_vectors[1].m_y1 < gInput.chosen_vectors[1].m_y0
+				? gInput.chosen_vectors[1].m_x1
+				: gInput.chosen_vectors[1].m_x0;
+
+	uint8_t	y0 = MIN(gInput.chosen_vectors[0].m_y1, gInput.chosen_vectors[0].m_y0);
+	uint8_t	y1 = MIN(gInput.chosen_vectors[1].m_y1, gInput.chosen_vectors[1].m_y0);
+
+	x = (x0 + x1) / 2;
+	y = (y0 + y1) / 2;
 }
 
 static int	getAngleByOneVector()
 {
-	if (gInput.chosen_vectors[0].m_x0 >= PIXY_MID_X)
-		return (RESTORE_ANGLE);
+	if (gInput.chosen_vectors[0].m_x0 <= gInput.chosen_vectors[0].m_x1)
+		return (MAX_SERVO_ANGLE * -1);
 	else
-		return (RESTORE_ANGLE * -1);
+		return (MAX_SERVO_ANGLE);
 }
 
 
