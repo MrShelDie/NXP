@@ -56,7 +56,6 @@ Date		Faite	Ctrl		Description
 struct VectorFlagged
 {
 	bool	is_interf;		// Помеха ли это
-	bool    is_stopline     // Стоп линия ли
 	uint8_t m_x0;
 	uint8_t m_y0;
 	uint8_t m_x1;

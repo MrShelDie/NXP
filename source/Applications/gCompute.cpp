@@ -42,6 +42,11 @@
 #include <stdio.h>
 #include <cmath>
 
+extern "C"
+{
+#include "Modules/mTimer.h"
+}
+
 void gCompute_Setup(void)
 {
 
@@ -94,7 +99,8 @@ static int	getAngleByOneVector()
 void checkStopLine(void)
 {
 	if(gCompute.StopKey1 == true)gCompute.StopKey2 = true;
-	else if(gCompute.StopKey1 == false && gCompute.StopKey2 == true) mTimer_SetMotorDuty(0, 0);//остановка
+	else if(gCompute.StopKey1 == false && gCompute.StopKey2 == true)
+		mTimer_SetMotorDuty(0, 0);  //остановка
 }
 
 void gCompute_Execute(void)
