@@ -77,18 +77,6 @@ static void setMainPoint(int &x, int &y)
 
 static int	getAngleByOneVector()
 {
-//	if (gInput.chosen_vectors[0].m_index != -1)
-//		return (RESTORE_ANGLE * (-1));
-//	else if (gInput.chosen_vectors[1].m_index != -1)
-//		return (RESTORE_ANGLE);
-//	else
-//	{
-//		if (gInput.chosen_vectors[2].m_x0 >= PIXY_MID_X)
-//			return (RESTORE_ANGLE);
-//		else
-//			return (RESTORE_ANGLE * (-1));
-//	}
-
 	if (gInput.chosen_vectors[0].m_x0 >= PIXY_MID_X)
 		return (RESTORE_ANGLE);
 	else
@@ -98,7 +86,8 @@ static int	getAngleByOneVector()
 
 void checkStopLine(void)
 {
-	if(gCompute.StopKey1 == true)gCompute.StopKey2 = true;
+	if(gCompute.StopKey1 == true)
+		gCompute.StopKey2 = true;
 	else if(gCompute.StopKey1 == false && gCompute.StopKey2 == true)
 		mTimer_SetMotorDuty(0, 0);  //остановка
 }
@@ -116,17 +105,5 @@ void gCompute_Execute(void)
 	}
 	else if (gInput.chosen_count == 1)
 		gCompute.turn_angle = getAngleByOneVector();
-	checkStopLine();//Пора ли останавливаться
+	checkStopLine();	//Пора ли останавливаться
 }
-
-//bool CheckStopLine()
-//{
-//	for (int i = 0; i < PIXEL_LINE_SIZE - 1; i++)
-//	{
-//		if ((gInput.pixel_line[i] != -1 && gInput.pixel_line[i + 1] != -1)
-//			&& (abs(gInput.pixel_line[i] - gInput.pixel_line[i + 1]) > DROP_MAX)
-//		)
-//			return (true);
-//	}
-//	return (false);
-//}
