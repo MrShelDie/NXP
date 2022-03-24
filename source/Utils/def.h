@@ -51,9 +51,10 @@ $History: $
 // Раскомментируй строку ниже, чтобы включить вывод информации в консоль
 // #define _DEBUG_
 // Время фильтрации входных векторов
-#define INPUT_DURATION 10
+#define INPUT_DURATION 50
 #define PIXY_VIDEO_Y_MAX 207
 #define MAX_SERVO_ANGLE 20.0f
+#define DEAD_ZONE_SERVO_DUTY 0.1f
 
 //------------------------------------------------------------
 // Constants

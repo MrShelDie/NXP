@@ -162,7 +162,7 @@ int main(void)
 	while (true)
 	{
 		mTimer_SetMotorDuty(0, 0);
-		mTimer_SetServoDuty(0, 0);
+		mTimer_SetServoDuty(1, 0);
 
 		// Ждем, поднятия переключателя, чтоб машина поехала
 		while (!mSwitch_ReadSwitch(kSw1));

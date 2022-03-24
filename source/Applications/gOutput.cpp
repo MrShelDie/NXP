@@ -39,26 +39,16 @@ Description dans le fichier gOutput.h
 #include "gOutput.h"
 #include "gMBox.h"
 #include "Utils/def.h"
+#include "math.h"
 
 void gOutput_Setup(void)
 {
 
 }
 
-float computeServoDuty()
-{
-	if (gCompute.turn_angle < -MAX_SERVO_ANGLE)
-		return (-1);
-	if (gCompute.turn_angle > MAX_SERVO_ANGLE)
-		return (1);
-	else
-		return (gCompute.turn_angle / MAX_SERVO_ANGLE);
-}
-
 void gOutput_Execute(void)
 {
-	float servo_duty = computeServoDuty();
-	mTimer_SetServoDuty(0, servo_duty);
+	mTimer_SetServoDuty(1, gCompute.servo_duty);
 
 #ifdef _DEBUG_
 

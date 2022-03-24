@@ -54,12 +54,6 @@ void gCompute_Setup(void)
 
 }
 
-static void setMainVectorDeviation(int x, int y, int &dx, int &dy)
-{
-	dx = x - PIXY_MID_X;
-	dy = (y - PIXY_MAX_Y) * (-1);
-}
-
 static int getLeftOrRightDirection(int dx)
 {
 	if (dx<0) return 1;
@@ -88,16 +82,13 @@ static void setMainPoint(int &x, int &y)
 	y = (y0 + y1) / 2;
 }
 
-static int	getAngleByOneVector()
+static int	getAngleByOneVector(int dx, int dy)
 {
-	if (gInput.chosen_vectors[0].m_x0 <= gInput.chosen_vectors[0].m_x1)
-		return (MAX_SERVO_ANGLE * -1);
-	else
-		return (MAX_SERVO_ANGLE);
+	return ( acos(-dy) / sqrt(dx*dx + dy * dy) );
 }
 
 
-void checkStopLine(void)
+static void checkStopLine(void)
 {
 	if(gCompute.StopKey1 == true)
 		gCompute.StopKey2 = true;
@@ -105,18 +96,38 @@ void checkStopLine(void)
 		mTimer_SetMotorDuty(0, 0);  //остановка
 }
 
+static float computeServoDuty()
+{
+	if (gCompute.turn_angle < -MAX_SERVO_ANGLE)
+		return (-1);
+	if (gCompute.turn_angle > MAX_SERVO_ANGLE)
+		return (1);
+	else
+		return (gCompute.turn_angle / MAX_SERVO_ANGLE);
+}
+
 void gCompute_Execute(void)
 {
-	int	x, y;
-	int dx, dy;
+	int		x, y;
+	int 	dx, dy;
+	float	new_servo_duty;
 
 	if (gInput.chosen_count == 2)
 	{
 		setMainPoint(x, y);
-		setMainVectorDeviation(x, y, dx, dy);
+		dx = x - PIXY_MID_X;
+		dy = (y - PIXY_MAX_Y) * (-1);
 		gCompute.turn_angle = computeAngleByMainVectorDeviation(dx, dy);
 	}
 	else if (gInput.chosen_count == 1)
-		gCompute.turn_angle = getAngleByOneVector();
+	{
+		dx = abs(gInput.chosen_vectors[0].m_x1 - gInput.chosen_vectors[0].m_x0);
+		dy = abs(gInput.chosen_vectors[0].m_y1 - gInput.chosen_vectors[0].m_y0);
+		gCompute.turn_angle = getAngleByOneVector(dx, dy);
+	}
+	new_servo_duty = computeServoDuty();
+	if (abs(new_servo_duty - gCompute.servo_duty) >= DEAD_ZONE_SERVO_DUTY)
+		gCompute.servo_duty = computeServoDuty();
+
 	checkStopLine();	//Пора ли останавливаться
 }

@@ -78,9 +78,10 @@ extern InputStruct gInput;
 
 typedef struct
 {
-  int turn_angle;
-  bool StopKey1 = false;       // Найдена ли стоплиния сейчас
-  bool StopKey2 = false;       // Была ли найдена стоплиния раньше
+  int 	turn_angle = 0;
+  float	servo_duty = 0;
+  bool	StopKey1 = false;       // Найдена ли стоплиния сейчас
+  bool	StopKey2 = false;       // Была ли найдена стоплиния раньше
 } ComputeStruct;
 
 extern ComputeStruct gCompute;
